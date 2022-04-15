@@ -59,6 +59,7 @@ public class ProjectManagerServer {
 			int weekDay = calendar(yearMilestone, monthMilestone, dayMilestone);
 			//dbConnect dataTransfer = new dbConnect();
 			//dataTransfer.dbProfileIntegration(cardNumber, task, cap_prof_mon, cap_prof_tue, cap_prof_wed, cap_prof_thu, cap_prof_fri);
+			//Database.dbConnect dataTransfer = new Database.dbConnect();
 			
 			//server response
 			TaskMatch.Builder responseBuilder = TaskMatch.newBuilder();
