@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ProjectManager";
+option java_outer_classname = "projectManagerSchedule";
+
+service FindingWorkers {
+	rpc TaskFinding(TaskSpecifications) returns (TaskMatch){}
+	//rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
+	//rpc taskRequest (stream WorkerRequest) returns (Success){}
+	//rpc extraWorkerNeeded (stream TaskSpecifications) returns (Success){}
+	//rpc changes (stream TaskSpecifications) returns (TaskMatch){}
+
+}
+
+message TaskSpecifications {
+	string project_number = 1;
+	string task = 2;
+	float number_hours = 3;
+	int64 day_milestone = 4;
+	int64 month_milestone = 5;
+	int64 year_milestone = 6;
+}
+
+message TaskMatch {
+	int64 date = 1;
+	float number_of_hours = 2;
+	string card_number = 3;
+}
+
+/*
+message WorkerRequest {
+string ProjectNumber = 1;
+string TaskName = 2;
+string TaskDescription = 3;
+int64 Date = 4;
+float Hours = 5;
+string CardNumber = 6;
+}
+
+message Success {
+	string message = 1;
+}
+*/
