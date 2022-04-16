@@ -54,7 +54,7 @@ public class dbConnect{
 			//Create statement
 			Statement myStmt = myConn.createStatement();
 			//Execute a SQL query
-			ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_timesheet WHERE card_number = " + cardNumber + " AND day_booked = " + dayBooked + " AND month_booked = " + monthBooked + " AND year_booked = " + yearBooked );
+			ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_timesheet WHERE card_number = " + cardNumber + " AND date_booked = '" + yearBooked + "-" + monthBooked + "-" + dayBooked + "'");
 			//String sql = "INSERT INTO Professional_profile VALUES (" + cardNumber + ", '" + task + "', " + cap_prof_mon + "," + cap_prof_tue + "," + cap_prof_wed + "," + cap_prof_thu + "," + cap_prof_fri + ")";
 			//myStmt.executeUpdate(sql);
 			//Process the result
@@ -82,7 +82,7 @@ public class dbConnect{
 			//Create statement
 			Statement myStmt = myConn.createStatement();
 			//Execute a SQL query
-			String sql = "INSERT INTO scheduler_db.professional_timesheet (card_number, job_number, hours_booked, day_booked, month_booked, year_booked) VALUES (" + cardNumber + ", " + jobNumber + ", " + hoursBooked + "," + dayBooked + "," + monthBooked + "," + yearBooked + ")"; //WHERE card_number = " + cardNumber;
+			String sql = "INSERT INTO scheduler_db.professional_timesheet (card_number, job_number, hours_booked, date_booked) VALUES (" + cardNumber + ", " + jobNumber + ", " + hoursBooked + ", '" + yearBooked + "-" + monthBooked + "-" + dayBooked + "')"; //WHERE card_number = " + cardNumber;
 			myStmt.executeUpdate(sql);
 			//ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile");
 			//Process the result
@@ -95,7 +95,7 @@ public class dbConnect{
 		}
 	}
 	
-	public void dbTaskCheck(int cardNumber, String task,  float cap_prof_mon, float cap_prof_tue, float cap_prof_wed, float cap_prof_thu, float cap_prof_fri){
+	public void dbTaskCheck(String task, String today, String deadline){
 		/*cardNumber = this.cardNumber;
 		task = this.task;
 		capacityProfile = this.capacityProfile;*/
@@ -107,7 +107,8 @@ public class dbConnect{
 			//Execute a SQL query
 			//String sql = "INSERT INTO Professional_profile VALUES (" + cardNumber + ", '" + task + "', " + cap_prof_mon + "," + cap_prof_tue + "," + cap_prof_wed + "," + cap_prof_thu + "," + cap_prof_fri + ")";
 			//myStmt.executeUpdate(sql);
-			ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = " + task);
+			//ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = " + task);
+			ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = '" + task + "' AND date_booked BETWEEN CAST('" + today + "' AS DATE) AND CAST('" + deadline +"' AS DATE);");
 			//Process the result
 			while (myRs.next()) {
 				System.out.println(myRs.getInt("card_number")+", "+ myRs.getInt("day_booked")+", "+ myRs.getInt("month_booked")+", "+ myRs.getInt("year_booked"));

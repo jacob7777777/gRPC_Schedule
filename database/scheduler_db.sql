@@ -20,10 +20,10 @@ CREATE TABLE Professional_timesheet (
   card_number INT,
   job_number INT,
   hours_booked FLOAT(3,2),
-  day_booked INT,
-  month_booked INT,
-  year_booked INT,
+  date_booked DATE,
   PRIMARY KEY (time_entry)
 );
 
-INSERT INTO Professional_timesheet VALUES ( 2,1, 1, 1, 1, 1, 2000);
+INSERT INTO Professional_timesheet VALUES ( 2,2,1, 1, '2000-01-01');
+SELECT * FROM scheduler_db.professional_timesheet WHERE date_booked BETWEEN CAST("2009-12-31" AS DATE) AND CAST("2010-12-31" AS DATE);
+SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = "Producer" AND date_booked BETWEEN CAST("2009-12-31" AS DATE) AND CAST("2010-12-31" AS DATE);

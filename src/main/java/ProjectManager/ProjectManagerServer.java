@@ -3,6 +3,8 @@ package ProjectManager;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 import Proffesional.ProffessionalRequestServer;
 import ProjectManager.FindingWorkersGrpc.FindingWorkersImplBase;
@@ -66,6 +68,22 @@ public class ProjectManagerServer {
 			if (weekDay == 7 | weekDay == 6) {
 				responseBuilder.setCardNumber("Sorry set a deadline in a working day");
 			} else {
+				Database.dbConnect dataTransfer = new Database.dbConnect();
+				LocalDate today = LocalDate.now();
+				LocalDate deadline = LocalDate.of(yearMilestone, monthMilestone, dayMilestone);
+				Stream<LocalDate> projectPeriod = today.datesUntil(deadline);//I receive a Stream of all the dates between today and the deadline
+				//String[] stringArray = projectPeriod.toArray(String[]::new); //https://stackoverflow.com/questions/23079003/how-to-convert-a-java-8-stream-to-an-array
+				projectPeriod.forEach(System.out::println);//puedo hacer un Stream de un Stream
+				//System.out.println(stringArray);
+				//int day projectPeriod.getDayOfMonth();//to change from LocalDate data type to int values and know what day of the week it is.
+				//int month projectPeriod.getMonth();
+				//int year projectPeriod.getYear();
+				
+				
+				//String []test = (String)projectPeriod;
+				//projectPeriod.replace("-", ",");
+				//java.time.LocalDate.now();
+				
 				responseBuilder.setCardNumber("Day is: "+ weekDay);
 			}
 			//esto tengo que arreglarlo porque aunque no se grabe sale que esta registrarlo
