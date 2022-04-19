@@ -33,16 +33,17 @@ public final class projectManagerSchedule {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\034ProjectManagerSchedule.proto\"\230\001\n\022TaskS" +
+      "\n\034ProjectManagerSchedule.proto\"\324\001\n\022TaskS" +
       "pecifications\022\026\n\016project_number\030\001 \001(\t\022\014\n" +
-      "\004task\030\002 \001(\t\022\024\n\014number_hours\030\003 \001(\002\022\025\n\rday" +
-      "_milestone\030\004 \001(\003\022\027\n\017month_milestone\030\005 \001(" +
-      "\003\022\026\n\016year_milestone\030\006 \001(\003\"G\n\tTaskMatch\022\014" +
-      "\n\004date\030\001 \001(\003\022\027\n\017number_of_hours\030\002 \001(\002\022\023\n" +
-      "\013card_number\030\003 \001(\t2B\n\016FindingWorkers\0220\n\013" +
-      "TaskFinding\022\023.TaskSpecifications\032\n.TaskM" +
-      "atch\"\000B*\n\016ProjectManagerB\026projectManager" +
-      "ScheduleP\001b\006proto3"
+      "\004task\030\002 \001(\t\022\024\n\014number_hours\030\003 \001(\002\022\021\n\tsta" +
+      "rt_day\030\004 \001(\003\022\023\n\013start_month\030\005 \001(\003\022\022\n\nsta" +
+      "rt_year\030\006 \001(\003\022\025\n\rmilestone_day\030\007 \001(\003\022\027\n\017" +
+      "milestone_month\030\010 \001(\003\022\026\n\016milestone_year\030" +
+      "\t \001(\003\"G\n\tTaskMatch\022\014\n\004date\030\001 \001(\003\022\027\n\017numb" +
+      "er_of_hours\030\002 \001(\002\022\023\n\013card_number\030\003 \001(\t2D" +
+      "\n\016FindingWorkers\0222\n\013TaskFinding\022\023.TaskSp" +
+      "ecifications\032\n.TaskMatch\"\0000\001B*\n\016ProjectM" +
+      "anagerB\026projectManagerScheduleP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -61,7 +62,7 @@ public final class projectManagerSchedule {
     internal_static_TaskSpecifications_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TaskSpecifications_descriptor,
-        new java.lang.String[] { "ProjectNumber", "Task", "NumberHours", "DayMilestone", "MonthMilestone", "YearMilestone", });
+        new java.lang.String[] { "ProjectNumber", "Task", "NumberHours", "StartDay", "StartMonth", "StartYear", "MilestoneDay", "MilestoneMonth", "MilestoneYear", });
     internal_static_TaskMatch_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_TaskMatch_fieldAccessorTable = new

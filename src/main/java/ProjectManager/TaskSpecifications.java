@@ -19,9 +19,12 @@ private static final long serialVersionUID = 0L;
     projectNumber_ = "";
     task_ = "";
     numberHours_ = 0F;
-    dayMilestone_ = 0L;
-    monthMilestone_ = 0L;
-    yearMilestone_ = 0L;
+    startDay_ = 0L;
+    startMonth_ = 0L;
+    startYear_ = 0L;
+    milestoneDay_ = 0L;
+    milestoneMonth_ = 0L;
+    milestoneYear_ = 0L;
   }
 
   @java.lang.Override
@@ -67,17 +70,32 @@ private static final long serialVersionUID = 0L;
           }
           case 32: {
 
-            dayMilestone_ = input.readInt64();
+            startDay_ = input.readInt64();
             break;
           }
           case 40: {
 
-            monthMilestone_ = input.readInt64();
+            startMonth_ = input.readInt64();
             break;
           }
           case 48: {
 
-            yearMilestone_ = input.readInt64();
+            startYear_ = input.readInt64();
+            break;
+          }
+          case 56: {
+
+            milestoneDay_ = input.readInt64();
+            break;
+          }
+          case 64: {
+
+            milestoneMonth_ = input.readInt64();
+            break;
+          }
+          case 72: {
+
+            milestoneYear_ = input.readInt64();
             break;
           }
           default: {
@@ -189,31 +207,58 @@ private static final long serialVersionUID = 0L;
     return numberHours_;
   }
 
-  public static final int DAY_MILESTONE_FIELD_NUMBER = 4;
-  private long dayMilestone_;
+  public static final int START_DAY_FIELD_NUMBER = 4;
+  private long startDay_;
   /**
-   * <code>int64 day_milestone = 4;</code>
+   * <code>int64 start_day = 4;</code>
    */
-  public long getDayMilestone() {
-    return dayMilestone_;
+  public long getStartDay() {
+    return startDay_;
   }
 
-  public static final int MONTH_MILESTONE_FIELD_NUMBER = 5;
-  private long monthMilestone_;
+  public static final int START_MONTH_FIELD_NUMBER = 5;
+  private long startMonth_;
   /**
-   * <code>int64 month_milestone = 5;</code>
+   * <code>int64 start_month = 5;</code>
    */
-  public long getMonthMilestone() {
-    return monthMilestone_;
+  public long getStartMonth() {
+    return startMonth_;
   }
 
-  public static final int YEAR_MILESTONE_FIELD_NUMBER = 6;
-  private long yearMilestone_;
+  public static final int START_YEAR_FIELD_NUMBER = 6;
+  private long startYear_;
   /**
-   * <code>int64 year_milestone = 6;</code>
+   * <code>int64 start_year = 6;</code>
    */
-  public long getYearMilestone() {
-    return yearMilestone_;
+  public long getStartYear() {
+    return startYear_;
+  }
+
+  public static final int MILESTONE_DAY_FIELD_NUMBER = 7;
+  private long milestoneDay_;
+  /**
+   * <code>int64 milestone_day = 7;</code>
+   */
+  public long getMilestoneDay() {
+    return milestoneDay_;
+  }
+
+  public static final int MILESTONE_MONTH_FIELD_NUMBER = 8;
+  private long milestoneMonth_;
+  /**
+   * <code>int64 milestone_month = 8;</code>
+   */
+  public long getMilestoneMonth() {
+    return milestoneMonth_;
+  }
+
+  public static final int MILESTONE_YEAR_FIELD_NUMBER = 9;
+  private long milestoneYear_;
+  /**
+   * <code>int64 milestone_year = 9;</code>
+   */
+  public long getMilestoneYear() {
+    return milestoneYear_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -239,14 +284,23 @@ private static final long serialVersionUID = 0L;
     if (numberHours_ != 0F) {
       output.writeFloat(3, numberHours_);
     }
-    if (dayMilestone_ != 0L) {
-      output.writeInt64(4, dayMilestone_);
+    if (startDay_ != 0L) {
+      output.writeInt64(4, startDay_);
     }
-    if (monthMilestone_ != 0L) {
-      output.writeInt64(5, monthMilestone_);
+    if (startMonth_ != 0L) {
+      output.writeInt64(5, startMonth_);
     }
-    if (yearMilestone_ != 0L) {
-      output.writeInt64(6, yearMilestone_);
+    if (startYear_ != 0L) {
+      output.writeInt64(6, startYear_);
+    }
+    if (milestoneDay_ != 0L) {
+      output.writeInt64(7, milestoneDay_);
+    }
+    if (milestoneMonth_ != 0L) {
+      output.writeInt64(8, milestoneMonth_);
+    }
+    if (milestoneYear_ != 0L) {
+      output.writeInt64(9, milestoneYear_);
     }
     unknownFields.writeTo(output);
   }
@@ -267,17 +321,29 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(3, numberHours_);
     }
-    if (dayMilestone_ != 0L) {
+    if (startDay_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, dayMilestone_);
+        .computeInt64Size(4, startDay_);
     }
-    if (monthMilestone_ != 0L) {
+    if (startMonth_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, monthMilestone_);
+        .computeInt64Size(5, startMonth_);
     }
-    if (yearMilestone_ != 0L) {
+    if (startYear_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, yearMilestone_);
+        .computeInt64Size(6, startYear_);
+    }
+    if (milestoneDay_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, milestoneDay_);
+    }
+    if (milestoneMonth_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(8, milestoneMonth_);
+    }
+    if (milestoneYear_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, milestoneYear_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -303,12 +369,18 @@ private static final long serialVersionUID = 0L;
         java.lang.Float.floatToIntBits(getNumberHours())
         == java.lang.Float.floatToIntBits(
             other.getNumberHours()));
-    result = result && (getDayMilestone()
-        == other.getDayMilestone());
-    result = result && (getMonthMilestone()
-        == other.getMonthMilestone());
-    result = result && (getYearMilestone()
-        == other.getYearMilestone());
+    result = result && (getStartDay()
+        == other.getStartDay());
+    result = result && (getStartMonth()
+        == other.getStartMonth());
+    result = result && (getStartYear()
+        == other.getStartYear());
+    result = result && (getMilestoneDay()
+        == other.getMilestoneDay());
+    result = result && (getMilestoneMonth()
+        == other.getMilestoneMonth());
+    result = result && (getMilestoneYear()
+        == other.getMilestoneYear());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -327,15 +399,24 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + NUMBER_HOURS_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getNumberHours());
-    hash = (37 * hash) + DAY_MILESTONE_FIELD_NUMBER;
+    hash = (37 * hash) + START_DAY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getDayMilestone());
-    hash = (37 * hash) + MONTH_MILESTONE_FIELD_NUMBER;
+        getStartDay());
+    hash = (37 * hash) + START_MONTH_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getMonthMilestone());
-    hash = (37 * hash) + YEAR_MILESTONE_FIELD_NUMBER;
+        getStartMonth());
+    hash = (37 * hash) + START_YEAR_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getYearMilestone());
+        getStartYear());
+    hash = (37 * hash) + MILESTONE_DAY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMilestoneDay());
+    hash = (37 * hash) + MILESTONE_MONTH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMilestoneMonth());
+    hash = (37 * hash) + MILESTONE_YEAR_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMilestoneYear());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -475,11 +556,17 @@ private static final long serialVersionUID = 0L;
 
       numberHours_ = 0F;
 
-      dayMilestone_ = 0L;
+      startDay_ = 0L;
 
-      monthMilestone_ = 0L;
+      startMonth_ = 0L;
 
-      yearMilestone_ = 0L;
+      startYear_ = 0L;
+
+      milestoneDay_ = 0L;
+
+      milestoneMonth_ = 0L;
+
+      milestoneYear_ = 0L;
 
       return this;
     }
@@ -510,9 +597,12 @@ private static final long serialVersionUID = 0L;
       result.projectNumber_ = projectNumber_;
       result.task_ = task_;
       result.numberHours_ = numberHours_;
-      result.dayMilestone_ = dayMilestone_;
-      result.monthMilestone_ = monthMilestone_;
-      result.yearMilestone_ = yearMilestone_;
+      result.startDay_ = startDay_;
+      result.startMonth_ = startMonth_;
+      result.startYear_ = startYear_;
+      result.milestoneDay_ = milestoneDay_;
+      result.milestoneMonth_ = milestoneMonth_;
+      result.milestoneYear_ = milestoneYear_;
       onBuilt();
       return result;
     }
@@ -572,14 +662,23 @@ private static final long serialVersionUID = 0L;
       if (other.getNumberHours() != 0F) {
         setNumberHours(other.getNumberHours());
       }
-      if (other.getDayMilestone() != 0L) {
-        setDayMilestone(other.getDayMilestone());
+      if (other.getStartDay() != 0L) {
+        setStartDay(other.getStartDay());
       }
-      if (other.getMonthMilestone() != 0L) {
-        setMonthMilestone(other.getMonthMilestone());
+      if (other.getStartMonth() != 0L) {
+        setStartMonth(other.getStartMonth());
       }
-      if (other.getYearMilestone() != 0L) {
-        setYearMilestone(other.getYearMilestone());
+      if (other.getStartYear() != 0L) {
+        setStartYear(other.getStartYear());
+      }
+      if (other.getMilestoneDay() != 0L) {
+        setMilestoneDay(other.getMilestoneDay());
+      }
+      if (other.getMilestoneMonth() != 0L) {
+        setMilestoneMonth(other.getMilestoneMonth());
+      }
+      if (other.getMilestoneYear() != 0L) {
+        setMilestoneYear(other.getMilestoneYear());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -774,80 +873,158 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long dayMilestone_ ;
+    private long startDay_ ;
     /**
-     * <code>int64 day_milestone = 4;</code>
+     * <code>int64 start_day = 4;</code>
      */
-    public long getDayMilestone() {
-      return dayMilestone_;
+    public long getStartDay() {
+      return startDay_;
     }
     /**
-     * <code>int64 day_milestone = 4;</code>
+     * <code>int64 start_day = 4;</code>
      */
-    public Builder setDayMilestone(long value) {
+    public Builder setStartDay(long value) {
       
-      dayMilestone_ = value;
+      startDay_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 day_milestone = 4;</code>
+     * <code>int64 start_day = 4;</code>
      */
-    public Builder clearDayMilestone() {
+    public Builder clearStartDay() {
       
-      dayMilestone_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long monthMilestone_ ;
-    /**
-     * <code>int64 month_milestone = 5;</code>
-     */
-    public long getMonthMilestone() {
-      return monthMilestone_;
-    }
-    /**
-     * <code>int64 month_milestone = 5;</code>
-     */
-    public Builder setMonthMilestone(long value) {
-      
-      monthMilestone_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 month_milestone = 5;</code>
-     */
-    public Builder clearMonthMilestone() {
-      
-      monthMilestone_ = 0L;
+      startDay_ = 0L;
       onChanged();
       return this;
     }
 
-    private long yearMilestone_ ;
+    private long startMonth_ ;
     /**
-     * <code>int64 year_milestone = 6;</code>
+     * <code>int64 start_month = 5;</code>
      */
-    public long getYearMilestone() {
-      return yearMilestone_;
+    public long getStartMonth() {
+      return startMonth_;
     }
     /**
-     * <code>int64 year_milestone = 6;</code>
+     * <code>int64 start_month = 5;</code>
      */
-    public Builder setYearMilestone(long value) {
+    public Builder setStartMonth(long value) {
       
-      yearMilestone_ = value;
+      startMonth_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 year_milestone = 6;</code>
+     * <code>int64 start_month = 5;</code>
      */
-    public Builder clearYearMilestone() {
+    public Builder clearStartMonth() {
       
-      yearMilestone_ = 0L;
+      startMonth_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long startYear_ ;
+    /**
+     * <code>int64 start_year = 6;</code>
+     */
+    public long getStartYear() {
+      return startYear_;
+    }
+    /**
+     * <code>int64 start_year = 6;</code>
+     */
+    public Builder setStartYear(long value) {
+      
+      startYear_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 start_year = 6;</code>
+     */
+    public Builder clearStartYear() {
+      
+      startYear_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long milestoneDay_ ;
+    /**
+     * <code>int64 milestone_day = 7;</code>
+     */
+    public long getMilestoneDay() {
+      return milestoneDay_;
+    }
+    /**
+     * <code>int64 milestone_day = 7;</code>
+     */
+    public Builder setMilestoneDay(long value) {
+      
+      milestoneDay_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 milestone_day = 7;</code>
+     */
+    public Builder clearMilestoneDay() {
+      
+      milestoneDay_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long milestoneMonth_ ;
+    /**
+     * <code>int64 milestone_month = 8;</code>
+     */
+    public long getMilestoneMonth() {
+      return milestoneMonth_;
+    }
+    /**
+     * <code>int64 milestone_month = 8;</code>
+     */
+    public Builder setMilestoneMonth(long value) {
+      
+      milestoneMonth_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 milestone_month = 8;</code>
+     */
+    public Builder clearMilestoneMonth() {
+      
+      milestoneMonth_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long milestoneYear_ ;
+    /**
+     * <code>int64 milestone_year = 9;</code>
+     */
+    public long getMilestoneYear() {
+      return milestoneYear_;
+    }
+    /**
+     * <code>int64 milestone_year = 9;</code>
+     */
+    public Builder setMilestoneYear(long value) {
+      
+      milestoneYear_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 milestone_year = 9;</code>
+     */
+    public Builder clearMilestoneYear() {
+      
+      milestoneYear_ = 0L;
       onChanged();
       return this;
     }

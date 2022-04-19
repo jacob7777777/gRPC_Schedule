@@ -5,7 +5,7 @@ option java_package = "ProjectManager";
 option java_outer_classname = "projectManagerSchedule";
 
 service FindingWorkers {
-	rpc TaskFinding(TaskSpecifications) returns (TaskMatch){}
+	rpc TaskFinding(TaskSpecifications) returns (stream TaskMatch){}
 	//rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
 	//rpc taskRequest (stream WorkerRequest) returns (Success){}
 	//rpc extraWorkerNeeded (stream TaskSpecifications) returns (Success){}
@@ -17,9 +17,12 @@ message TaskSpecifications {
 	string project_number = 1;
 	string task = 2;
 	float number_hours = 3;
-	int64 day_milestone = 4;
-	int64 month_milestone = 5;
-	int64 year_milestone = 6;
+	int64 start_day = 4;
+	int64 start_month = 5;
+	int64 start_year =  6;
+	int64 milestone_day = 7;
+	int64 milestone_month = 8;
+	int64 milestone_year = 9;
 }
 
 message TaskMatch {

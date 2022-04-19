@@ -33,17 +33,32 @@ public interface TaskSpecificationsOrBuilder extends
   float getNumberHours();
 
   /**
-   * <code>int64 day_milestone = 4;</code>
+   * <code>int64 start_day = 4;</code>
    */
-  long getDayMilestone();
+  long getStartDay();
 
   /**
-   * <code>int64 month_milestone = 5;</code>
+   * <code>int64 start_month = 5;</code>
    */
-  long getMonthMilestone();
+  long getStartMonth();
 
   /**
-   * <code>int64 year_milestone = 6;</code>
+   * <code>int64 start_year = 6;</code>
    */
-  long getYearMilestone();
+  long getStartYear();
+
+  /**
+   * <code>int64 milestone_day = 7;</code>
+   */
+  long getMilestoneDay();
+
+  /**
+   * <code>int64 milestone_month = 8;</code>
+   */
+  long getMilestoneMonth();
+
+  /**
+   * <code>int64 milestone_year = 9;</code>
+   */
+  long getMilestoneYear();
 }
