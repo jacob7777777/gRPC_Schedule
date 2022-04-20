@@ -169,30 +169,33 @@ public class dbConnect{
 			Statement myStmt1 = myConn.createStatement();
 			ResultSet myRs1 = myStmt1.executeQuery("SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = '" + task + "' AND DATE(date_booked) = '" + dateCheck + "';");
 			
-			
+			if(myRs1.next() == true) {
 			//"this.thisRow"
-			while (myRs1.next()) {
-				System.out.println("While loop entering");
-				//System.out.println(myRs1.getFloat("hours_booked"));
-				if(myRs1.getFloat("hours_booked") != 0.0) {
-					
-					if(weekDay == 1) {
-						setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_mon") - myRs1.getFloat("hours_booked"));
-					} else if (weekDay == 2) {
-						setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_tue") - myRs1.getFloat("hours_booked"));
-					} else if (weekDay == 3) {
-						setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_wed") - myRs1.getFloat("hours_booked"));
-					} else if (weekDay == 4) {
-						setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_thu") - myRs1.getFloat("hours_booked"));
-					} else {
-						setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_fri") - myRs1.getFloat("hours_booked"));				
-					}
-					
+				while (myRs1.next()) {
+					System.out.println("While loop entering");
+					//System.out.println(myRs1.getFloat("hours_booked"));
+					//if(myRs1.getFloat("hours_booked") != 0.0) {
+						
+						if(weekDay == 1) {
+							setCardNumberTaskCheck(myRs1.getInt("card_number"));
+							setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_mon") - myRs1.getFloat("hours_booked"));
+						} else if (weekDay == 2) {
+							setCardNumberTaskCheck(myRs1.getInt("card_number"));
+							setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_tue") - myRs1.getFloat("hours_booked"));
+						} else if (weekDay == 3) {
+							setCardNumberTaskCheck(myRs1.getInt("card_number"));
+							setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_wed") - myRs1.getFloat("hours_booked"));
+						} else if (weekDay == 4) {
+							setCardNumberTaskCheck(myRs1.getInt("card_number"));
+							setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_thu") - myRs1.getFloat("hours_booked"));
+						} else {
+							setCardNumberTaskCheck(myRs1.getInt("card_number"));
+							setNumberOfHoursTaskCheck(myRs1.getFloat("cap_prof_fri") - myRs1.getFloat("hours_booked"));				
+						}
+					myRs1.close();
+					myStmt1.close();
+					myConn.close();
+					}	
 				} else {
 					System.out.println("entering frustrating loop");
 					dbTaskCheck(task);
@@ -214,11 +217,11 @@ public class dbConnect{
 						setNumberOfHoursTaskCheck(capProfMon);				
 					}	
 				}
-			}
+			
 			System.out.println("End of dbHoursCheck");
-			myRs1.close();
-			myStmt1.close();
-			myConn.close();
+			//myRs1.close();
+			//myStmt1.close();
+			//myConn.close();
 			//ResultSet myRs1 = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = '" + task + "' AND DATE(date_booked) = '" + date_check + "';");
 			//SELECT * FROM scheduler_db.professional_profile INNER JOIN professional_timesheet USING (card_number) WHERE task = "Producer" AND DATE(date_booked) = '2010-10-10';
 			//Process the result

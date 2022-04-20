@@ -80,15 +80,22 @@ public class ProjectManagerServer {
 				} else {
 					Stream<LocalDate> projectPeriod = startDate.datesUntil(deadline);//I receive a Stream of all the dates between today and the deadline
 					Object[] projectPeriodDates = projectPeriod.toArray();
+					float numberHoursCounter = numberHours;
+					//while (numberHoursCounter > 0) {
 					for (int i = 0; i < projectPeriodDates.length; i++) {
 						LocalDate projectPeriodDate = (LocalDate) projectPeriodDates[i];
+						System.out.print("fufifi");
+						System.out.println(projectPeriodDate);
+						//System.out.println("Ms1 Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables on the " + projectPeriodDate);
 						int day = projectPeriodDate.getDayOfMonth();//to change from LocalDate data type to int values and know what day of the week it is.
 						int month = projectPeriodDate.getMonthValue();
 						int year = projectPeriodDate.getYear();
 						int weekDay = calendar(year, month, day);
+						//Database.dbConnect dataTransfer = new Database.dbConnect();
+						//dataTransfer.dbTaskCheck(task);
+						//dataTransfer.dbHoursCheck(task, String.valueOf(projectPeriodDate), weekDay);
 						if(weekDay == 1 || weekDay == 2 || weekDay == 3 || weekDay == 4 || weekDay == 5) {
-							float numberHoursCounter = numberHours;
-							while (numberHoursCounter > 0) {
+							
 								Database.dbConnect dataTransfer = new Database.dbConnect();
 								dataTransfer.dbTaskCheck(task);
 								System.out.println("Back to server while loop");
@@ -112,13 +119,13 @@ public class ProjectManagerServer {
 									System.out.println(numberHoursCounter);
 									System.out.println("Back to else loop");
 									System.out.println(dataTransfer.getNumberOfHoursTaskCheck());
-									responseBuilder.setCardNumber("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables on the " + projectPeriodDates[i]);
+									responseBuilder.setCardNumber("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables on the " + projectPeriodDate);
+									System.out.println("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables on the " + projectPeriodDate);
 									responseObserver.onNext(responseBuilder.build());
 									numberHoursCounter = numberHoursCounter - dataTransfer.getNumberOfHoursTaskCheck();
-									i++;
 								
 								}
-							}
+							//}
 							
 						} 
 						
