@@ -114,8 +114,8 @@ public class dbConnect{
 	}
 	
 	public void dbTaskCheck(String task){
-		System.out.println("Entering dbTaskCheck");
-		System.out.println(task);
+		//System.out.println("Entering dbTaskCheck");
+		//System.out.println(task);
 		//System.out.println(dateCheck);
 		//System.out.println(weekDay);
 		//task = this.task;
@@ -142,8 +142,8 @@ public class dbConnect{
 					setCapProfThur(myRs0.getFloat("cap_prof_thu"));
 					setCapProfFri(myRs0.getFloat("cap_prof_fri"));
 						
-					System.out.println(myRs0.getInt("card_number"));
-					System.out.println("Inside dbTaskCheck while loop");
+					//System.out.println(myRs0.getInt("card_number"));
+					//System.out.println("Inside dbTaskCheck while loop");
 					
 					//setCardNumberTaskCheck(99);
 					//setNumberOfHoursTaskCheck(99);	
@@ -161,7 +161,7 @@ public class dbConnect{
 		}
 		
 	public void dbHoursCheck(String task, String dateCheck, int weekDay){
-		System.out.println("Entering dbHoursCheck");
+		//System.out.println("Entering dbHoursCheck");
 		try {
 			//Get a connection
 			Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/scheduler_db", "root", "password");
@@ -172,7 +172,7 @@ public class dbConnect{
 			if(myRs1.next() == true) {
 			//"this.thisRow"
 				while (myRs1.next()) {
-					System.out.println("While loop entering");
+					//System.out.println("While loop entering");
 					//System.out.println(myRs1.getFloat("hours_booked"));
 					//if(myRs1.getFloat("hours_booked") != 0.0) {
 						
@@ -197,7 +197,7 @@ public class dbConnect{
 					myConn.close();
 					}	
 				} else {
-					System.out.println("entering frustrating loop");
+					//System.out.println("entering frustrating loop");
 					dbTaskCheck(task);
 					if(weekDay == 1) {
 						//dbTaskCheck(task);
@@ -218,7 +218,7 @@ public class dbConnect{
 					}	
 				}
 			
-			System.out.println("End of dbHoursCheck");
+			//System.out.println("End of dbHoursCheck");
 			//myRs1.close();
 			//myStmt1.close();
 			//myConn.close();

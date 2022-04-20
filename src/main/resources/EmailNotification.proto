@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "EmailsNotifications";
+option java_outer_classname = "Notifications";
+
+service Notification {
+	rpc JobConfirmation (answer) returns (thanks){}
+	rpc TaskChange (answer) returns (thanks){}
+	rpc AbsenceConfirmation (answer) returns (thanks){}
+}
+
+message answer {
+bool Confirmation_Refusal = 1;
+}
+
+message thanks {
+	string message = 1;
+}

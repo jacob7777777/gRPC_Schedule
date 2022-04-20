@@ -26,12 +26,12 @@ public class ProffessionalRequestServer {
 	private void start() throws IOException, InterruptedException {
 		System.out.println("Starting gRPC Server");
 		int port = 50051;
-		server = ServerBuilder.forPort(port).addService(new ASAServiceImpl()).build().start();
+		server = ServerBuilder.forPort(port).addService(new proffessionalSchedule()).build().start();
 		System.out.println("Server running on port: " + port);
 		server.awaitTermination();
 	}
 	
-	static class ASAServiceImpl extends TimesheetsImplBase{
+	static class proffessionalSchedule extends TimesheetsImplBase{
 		@Override
 		public void introduceProfile(profile request, StreamObserver<success> responseObserver){
 			
