@@ -205,16 +205,16 @@ public class dbConnect{
 						setNumberOfHoursTaskCheck(capProfMon);
 					} else if (weekDay == 2) {
 						//setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(capProfMon);
+						setNumberOfHoursTaskCheck(capProfTue);
 					} else if (weekDay == 3) {
 						//setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(capProfMon);
+						setNumberOfHoursTaskCheck(capProfWed);
 					} else if (weekDay == 4) {
 						//setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(capProfMon);
+						setNumberOfHoursTaskCheck(capProfThur);
 					} else {
 						//setCardNumberTaskCheck(myRs1.getInt("card_number"));
-						setNumberOfHoursTaskCheck(capProfMon);				
+						setNumberOfHoursTaskCheck(capProfFri);				
 					}	
 				}
 			
