@@ -3,8 +3,8 @@
 
 package ProjectManager;
 
-public interface TaskSpecificationsOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:TaskSpecifications)
+public interface taskSpecificationsOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:taskSpecifications)
     com.google.protobuf.MessageOrBuilder {
 
   /**

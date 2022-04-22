@@ -46,7 +46,7 @@ public class ProjectManagerServer {
 	
 	static class projectManagerSchedule extends FindingWorkersImplBase{
 		@Override
-		public void taskFinding(TaskSpecifications request, StreamObserver<TaskMatch> responseObserver){
+		public void taskFinding(taskSpecifications request, StreamObserver<taskMatch> responseObserver){
 			
 			//client message
 			try {
@@ -72,7 +72,7 @@ public class ProjectManagerServer {
 			LocalDate today = LocalDate.now();
 			
 			//server response
-			TaskMatch.Builder responseBuilder = TaskMatch.newBuilder();
+			taskMatch.Builder responseBuilder = taskMatch.newBuilder();
 				if (startDate.isAfter(deadline)){
 					responseBuilder.setCardNumber("Please enter valid period.");
 				} else if (today.isAfter(startDate)){
@@ -148,7 +148,7 @@ public class ProjectManagerServer {
 				responseObserver.onCompleted();
 				
 			} catch (Exception e) {
-				TaskMatch.Builder responseBuilder = TaskMatch.newBuilder();
+				taskMatch.Builder responseBuilder = taskMatch.newBuilder();
 				responseBuilder.setCardNumber("Please enter valid values.");
 				responseObserver.onNext(responseBuilder.build());
 				responseObserver.onCompleted();
@@ -238,5 +238,40 @@ public class ProjectManagerServer {
 			
 		}
 		
-	}}
+		
+		
+		@Override
+		public StreamObserver<taskMatch> taskRequest(StreamObserver<success> responseObserver){
+			System.out.println("On server inside streamline");
+			return new StreamObserver<taskMatch>() {
+
+				@Override
+				public void onNext(taskMatch value) {
+					System.out.println("On server message received from client " + value.getCardNumber() + value.getNumberOfHours());
+					
+				}
+
+				@Override
+				public void onError(Throwable t) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void onCompleted() {
+					success.Builder responseBuilder = success.newBuilder();
+					System.out.println("Client server streaming finished");
+					responseBuilder.setTask("Client server streaming finished");
+					responseObserver.onNext(responseBuilder.build());
+					responseObserver.onCompleted();
+					
+				}};
+		}}}
+		
+		
+		
+		
+		
+		
+	
 

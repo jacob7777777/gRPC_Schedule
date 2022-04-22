@@ -3,6 +3,7 @@ package Proffesional;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
+import ProjectManager.taskMatch;
 import grpc.CA1.AutomatedSchedulingApp.TimesheetsGrpc;
 import grpc.CA1.AutomatedSchedulingApp.profile;
 import grpc.CA1.AutomatedSchedulingApp.success;
@@ -10,6 +11,7 @@ import grpc.CA1.AutomatedSchedulingApp.successOrBuilder;
 import grpc.CA1.AutomatedSchedulingApp.TimesheetsGrpc.TimesheetsBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class ProffessionalRequest {
 
@@ -50,6 +52,7 @@ public class ProffessionalRequest {
 		}
 		//newResponse responseInt = bstub.getFirstInt(cString);
 		//System.out.println("Now print our response from the getFirstInt rpc" + responseInt.getFirstInt());
+		
 		// Shutdown the channel
 		newChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
 	}

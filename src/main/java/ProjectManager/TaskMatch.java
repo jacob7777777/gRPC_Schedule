@@ -4,18 +4,21 @@
 package ProjectManager;
 
 /**
- * Protobuf type {@code TaskMatch}
+ * Protobuf type {@code taskMatch}
  */
-public  final class TaskMatch extends
+public  final class taskMatch extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:TaskMatch)
-    TaskMatchOrBuilder {
+    // @@protoc_insertion_point(message_implements:taskMatch)
+    taskMatchOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use TaskMatch.newBuilder() to construct.
-  private TaskMatch(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use taskMatch.newBuilder() to construct.
+  private taskMatch(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private TaskMatch() {
+  private taskMatch() {
+    workingDay_ = 0L;
+    workingMonth_ = 0L;
+    workingYear_ = 0L;
     date_ = 0L;
     numberOfHours_ = 0F;
     cardNumber_ = "";
@@ -26,7 +29,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TaskMatch(
+  private taskMatch(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -47,15 +50,30 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
+            workingDay_ = input.readInt64();
+            break;
+          }
+          case 16: {
+
+            workingMonth_ = input.readInt64();
+            break;
+          }
+          case 24: {
+
+            workingYear_ = input.readInt64();
+            break;
+          }
+          case 32: {
+
             date_ = input.readInt64();
             break;
           }
-          case 21: {
+          case 45: {
 
             numberOfHours_ = input.readFloat();
             break;
           }
-          case 26: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             cardNumber_ = s;
@@ -82,39 +100,66 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ProjectManager.projectManagerSchedule.internal_static_TaskMatch_descriptor;
+    return ProjectManager.projectManagerSchedule.internal_static_taskMatch_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ProjectManager.projectManagerSchedule.internal_static_TaskMatch_fieldAccessorTable
+    return ProjectManager.projectManagerSchedule.internal_static_taskMatch_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ProjectManager.TaskMatch.class, ProjectManager.TaskMatch.Builder.class);
+            ProjectManager.taskMatch.class, ProjectManager.taskMatch.Builder.class);
   }
 
-  public static final int DATE_FIELD_NUMBER = 1;
+  public static final int WORKING_DAY_FIELD_NUMBER = 1;
+  private long workingDay_;
+  /**
+   * <code>int64 working_day = 1;</code>
+   */
+  public long getWorkingDay() {
+    return workingDay_;
+  }
+
+  public static final int WORKING_MONTH_FIELD_NUMBER = 2;
+  private long workingMonth_;
+  /**
+   * <code>int64 working_month = 2;</code>
+   */
+  public long getWorkingMonth() {
+    return workingMonth_;
+  }
+
+  public static final int WORKING_YEAR_FIELD_NUMBER = 3;
+  private long workingYear_;
+  /**
+   * <code>int64 working_year = 3;</code>
+   */
+  public long getWorkingYear() {
+    return workingYear_;
+  }
+
+  public static final int DATE_FIELD_NUMBER = 4;
   private long date_;
   /**
-   * <code>int64 date = 1;</code>
+   * <code>int64 date = 4;</code>
    */
   public long getDate() {
     return date_;
   }
 
-  public static final int NUMBER_OF_HOURS_FIELD_NUMBER = 2;
+  public static final int NUMBER_OF_HOURS_FIELD_NUMBER = 5;
   private float numberOfHours_;
   /**
-   * <code>float number_of_hours = 2;</code>
+   * <code>float number_of_hours = 5;</code>
    */
   public float getNumberOfHours() {
     return numberOfHours_;
   }
 
-  public static final int CARD_NUMBER_FIELD_NUMBER = 3;
+  public static final int CARD_NUMBER_FIELD_NUMBER = 6;
   private volatile java.lang.Object cardNumber_;
   /**
-   * <code>string card_number = 3;</code>
+   * <code>string card_number = 6;</code>
    */
   public java.lang.String getCardNumber() {
     java.lang.Object ref = cardNumber_;
@@ -129,7 +174,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string card_number = 3;</code>
+   * <code>string card_number = 6;</code>
    */
   public com.google.protobuf.ByteString
       getCardNumberBytes() {
@@ -159,14 +204,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (workingDay_ != 0L) {
+      output.writeInt64(1, workingDay_);
+    }
+    if (workingMonth_ != 0L) {
+      output.writeInt64(2, workingMonth_);
+    }
+    if (workingYear_ != 0L) {
+      output.writeInt64(3, workingYear_);
+    }
     if (date_ != 0L) {
-      output.writeInt64(1, date_);
+      output.writeInt64(4, date_);
     }
     if (numberOfHours_ != 0F) {
-      output.writeFloat(2, numberOfHours_);
+      output.writeFloat(5, numberOfHours_);
     }
     if (!getCardNumberBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, cardNumber_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cardNumber_);
     }
     unknownFields.writeTo(output);
   }
@@ -177,16 +231,28 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (workingDay_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, workingDay_);
+    }
+    if (workingMonth_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, workingMonth_);
+    }
+    if (workingYear_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, workingYear_);
+    }
     if (date_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, date_);
+        .computeInt64Size(4, date_);
     }
     if (numberOfHours_ != 0F) {
       size += com.google.protobuf.CodedOutputStream
-        .computeFloatSize(2, numberOfHours_);
+        .computeFloatSize(5, numberOfHours_);
     }
     if (!getCardNumberBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, cardNumber_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cardNumber_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -198,12 +264,18 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ProjectManager.TaskMatch)) {
+    if (!(obj instanceof ProjectManager.taskMatch)) {
       return super.equals(obj);
     }
-    ProjectManager.TaskMatch other = (ProjectManager.TaskMatch) obj;
+    ProjectManager.taskMatch other = (ProjectManager.taskMatch) obj;
 
     boolean result = true;
+    result = result && (getWorkingDay()
+        == other.getWorkingDay());
+    result = result && (getWorkingMonth()
+        == other.getWorkingMonth());
+    result = result && (getWorkingYear()
+        == other.getWorkingYear());
     result = result && (getDate()
         == other.getDate());
     result = result && (
@@ -223,6 +295,15 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + WORKING_DAY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getWorkingDay());
+    hash = (37 * hash) + WORKING_MONTH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getWorkingMonth());
+    hash = (37 * hash) + WORKING_YEAR_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getWorkingYear());
     hash = (37 * hash) + DATE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getDate());
@@ -236,69 +317,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskMatch parseFrom(byte[] data)
+  public static ProjectManager.taskMatch parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskMatch parseFrom(java.io.InputStream input)
+  public static ProjectManager.taskMatch parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProjectManager.TaskMatch parseDelimitedFrom(java.io.InputStream input)
+  public static ProjectManager.taskMatch parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskMatch parseDelimitedFrom(
+  public static ProjectManager.taskMatch parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskMatch parseFrom(
+  public static ProjectManager.taskMatch parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -311,7 +392,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ProjectManager.TaskMatch prototype) {
+  public static Builder newBuilder(ProjectManager.taskMatch prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -327,26 +408,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code TaskMatch}
+   * Protobuf type {@code taskMatch}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:TaskMatch)
-      ProjectManager.TaskMatchOrBuilder {
+      // @@protoc_insertion_point(builder_implements:taskMatch)
+      ProjectManager.taskMatchOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskMatch_descriptor;
+      return ProjectManager.projectManagerSchedule.internal_static_taskMatch_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskMatch_fieldAccessorTable
+      return ProjectManager.projectManagerSchedule.internal_static_taskMatch_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProjectManager.TaskMatch.class, ProjectManager.TaskMatch.Builder.class);
+              ProjectManager.taskMatch.class, ProjectManager.taskMatch.Builder.class);
     }
 
-    // Construct using ProjectManager.TaskMatch.newBuilder()
+    // Construct using ProjectManager.taskMatch.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -364,6 +445,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      workingDay_ = 0L;
+
+      workingMonth_ = 0L;
+
+      workingYear_ = 0L;
+
       date_ = 0L;
 
       numberOfHours_ = 0F;
@@ -376,17 +463,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskMatch_descriptor;
+      return ProjectManager.projectManagerSchedule.internal_static_taskMatch_descriptor;
     }
 
     @java.lang.Override
-    public ProjectManager.TaskMatch getDefaultInstanceForType() {
-      return ProjectManager.TaskMatch.getDefaultInstance();
+    public ProjectManager.taskMatch getDefaultInstanceForType() {
+      return ProjectManager.taskMatch.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ProjectManager.TaskMatch build() {
-      ProjectManager.TaskMatch result = buildPartial();
+    public ProjectManager.taskMatch build() {
+      ProjectManager.taskMatch result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -394,8 +481,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ProjectManager.TaskMatch buildPartial() {
-      ProjectManager.TaskMatch result = new ProjectManager.TaskMatch(this);
+    public ProjectManager.taskMatch buildPartial() {
+      ProjectManager.taskMatch result = new ProjectManager.taskMatch(this);
+      result.workingDay_ = workingDay_;
+      result.workingMonth_ = workingMonth_;
+      result.workingYear_ = workingYear_;
       result.date_ = date_;
       result.numberOfHours_ = numberOfHours_;
       result.cardNumber_ = cardNumber_;
@@ -437,16 +527,25 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ProjectManager.TaskMatch) {
-        return mergeFrom((ProjectManager.TaskMatch)other);
+      if (other instanceof ProjectManager.taskMatch) {
+        return mergeFrom((ProjectManager.taskMatch)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ProjectManager.TaskMatch other) {
-      if (other == ProjectManager.TaskMatch.getDefaultInstance()) return this;
+    public Builder mergeFrom(ProjectManager.taskMatch other) {
+      if (other == ProjectManager.taskMatch.getDefaultInstance()) return this;
+      if (other.getWorkingDay() != 0L) {
+        setWorkingDay(other.getWorkingDay());
+      }
+      if (other.getWorkingMonth() != 0L) {
+        setWorkingMonth(other.getWorkingMonth());
+      }
+      if (other.getWorkingYear() != 0L) {
+        setWorkingYear(other.getWorkingYear());
+      }
       if (other.getDate() != 0L) {
         setDate(other.getDate());
       }
@@ -472,11 +571,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ProjectManager.TaskMatch parsedMessage = null;
+      ProjectManager.taskMatch parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ProjectManager.TaskMatch) e.getUnfinishedMessage();
+        parsedMessage = (ProjectManager.taskMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -486,15 +585,93 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long workingDay_ ;
+    /**
+     * <code>int64 working_day = 1;</code>
+     */
+    public long getWorkingDay() {
+      return workingDay_;
+    }
+    /**
+     * <code>int64 working_day = 1;</code>
+     */
+    public Builder setWorkingDay(long value) {
+      
+      workingDay_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 working_day = 1;</code>
+     */
+    public Builder clearWorkingDay() {
+      
+      workingDay_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long workingMonth_ ;
+    /**
+     * <code>int64 working_month = 2;</code>
+     */
+    public long getWorkingMonth() {
+      return workingMonth_;
+    }
+    /**
+     * <code>int64 working_month = 2;</code>
+     */
+    public Builder setWorkingMonth(long value) {
+      
+      workingMonth_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 working_month = 2;</code>
+     */
+    public Builder clearWorkingMonth() {
+      
+      workingMonth_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long workingYear_ ;
+    /**
+     * <code>int64 working_year = 3;</code>
+     */
+    public long getWorkingYear() {
+      return workingYear_;
+    }
+    /**
+     * <code>int64 working_year = 3;</code>
+     */
+    public Builder setWorkingYear(long value) {
+      
+      workingYear_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 working_year = 3;</code>
+     */
+    public Builder clearWorkingYear() {
+      
+      workingYear_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long date_ ;
     /**
-     * <code>int64 date = 1;</code>
+     * <code>int64 date = 4;</code>
      */
     public long getDate() {
       return date_;
     }
     /**
-     * <code>int64 date = 1;</code>
+     * <code>int64 date = 4;</code>
      */
     public Builder setDate(long value) {
       
@@ -503,7 +680,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 date = 1;</code>
+     * <code>int64 date = 4;</code>
      */
     public Builder clearDate() {
       
@@ -514,13 +691,13 @@ private static final long serialVersionUID = 0L;
 
     private float numberOfHours_ ;
     /**
-     * <code>float number_of_hours = 2;</code>
+     * <code>float number_of_hours = 5;</code>
      */
     public float getNumberOfHours() {
       return numberOfHours_;
     }
     /**
-     * <code>float number_of_hours = 2;</code>
+     * <code>float number_of_hours = 5;</code>
      */
     public Builder setNumberOfHours(float value) {
       
@@ -529,7 +706,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>float number_of_hours = 2;</code>
+     * <code>float number_of_hours = 5;</code>
      */
     public Builder clearNumberOfHours() {
       
@@ -540,7 +717,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object cardNumber_ = "";
     /**
-     * <code>string card_number = 3;</code>
+     * <code>string card_number = 6;</code>
      */
     public java.lang.String getCardNumber() {
       java.lang.Object ref = cardNumber_;
@@ -555,7 +732,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string card_number = 3;</code>
+     * <code>string card_number = 6;</code>
      */
     public com.google.protobuf.ByteString
         getCardNumberBytes() {
@@ -571,7 +748,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string card_number = 3;</code>
+     * <code>string card_number = 6;</code>
      */
     public Builder setCardNumber(
         java.lang.String value) {
@@ -584,7 +761,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string card_number = 3;</code>
+     * <code>string card_number = 6;</code>
      */
     public Builder clearCardNumber() {
       
@@ -593,7 +770,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string card_number = 3;</code>
+     * <code>string card_number = 6;</code>
      */
     public Builder setCardNumberBytes(
         com.google.protobuf.ByteString value) {
@@ -619,41 +796,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:TaskMatch)
+    // @@protoc_insertion_point(builder_scope:taskMatch)
   }
 
-  // @@protoc_insertion_point(class_scope:TaskMatch)
-  private static final ProjectManager.TaskMatch DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:taskMatch)
+  private static final ProjectManager.taskMatch DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ProjectManager.TaskMatch();
+    DEFAULT_INSTANCE = new ProjectManager.taskMatch();
   }
 
-  public static ProjectManager.TaskMatch getDefaultInstance() {
+  public static ProjectManager.taskMatch getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<TaskMatch>
-      PARSER = new com.google.protobuf.AbstractParser<TaskMatch>() {
+  private static final com.google.protobuf.Parser<taskMatch>
+      PARSER = new com.google.protobuf.AbstractParser<taskMatch>() {
     @java.lang.Override
-    public TaskMatch parsePartialFrom(
+    public taskMatch parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TaskMatch(input, extensionRegistry);
+      return new taskMatch(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<TaskMatch> parser() {
+  public static com.google.protobuf.Parser<taskMatch> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<TaskMatch> getParserForType() {
+  public com.google.protobuf.Parser<taskMatch> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ProjectManager.TaskMatch getDefaultInstanceForType() {
+  public ProjectManager.taskMatch getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

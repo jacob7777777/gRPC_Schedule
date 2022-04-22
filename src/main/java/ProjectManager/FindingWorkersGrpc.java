@@ -27,36 +27,68 @@ public final class FindingWorkersGrpc {
   public static final String SERVICE_NAME = "FindingWorkers";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<ProjectManager.TaskSpecifications,
-      ProjectManager.TaskMatch> getTaskFindingMethod;
+  private static volatile io.grpc.MethodDescriptor<ProjectManager.taskSpecifications,
+      ProjectManager.taskMatch> getTaskFindingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "TaskFinding",
-      requestType = ProjectManager.TaskSpecifications.class,
-      responseType = ProjectManager.TaskMatch.class,
+      requestType = ProjectManager.taskSpecifications.class,
+      responseType = ProjectManager.taskMatch.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<ProjectManager.TaskSpecifications,
-      ProjectManager.TaskMatch> getTaskFindingMethod() {
-    io.grpc.MethodDescriptor<ProjectManager.TaskSpecifications, ProjectManager.TaskMatch> getTaskFindingMethod;
+  public static io.grpc.MethodDescriptor<ProjectManager.taskSpecifications,
+      ProjectManager.taskMatch> getTaskFindingMethod() {
+    io.grpc.MethodDescriptor<ProjectManager.taskSpecifications, ProjectManager.taskMatch> getTaskFindingMethod;
     if ((getTaskFindingMethod = FindingWorkersGrpc.getTaskFindingMethod) == null) {
       synchronized (FindingWorkersGrpc.class) {
         if ((getTaskFindingMethod = FindingWorkersGrpc.getTaskFindingMethod) == null) {
           FindingWorkersGrpc.getTaskFindingMethod = getTaskFindingMethod = 
-              io.grpc.MethodDescriptor.<ProjectManager.TaskSpecifications, ProjectManager.TaskMatch>newBuilder()
+              io.grpc.MethodDescriptor.<ProjectManager.taskSpecifications, ProjectManager.taskMatch>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "FindingWorkers", "TaskFinding"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ProjectManager.TaskSpecifications.getDefaultInstance()))
+                  ProjectManager.taskSpecifications.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  ProjectManager.TaskMatch.getDefaultInstance()))
+                  ProjectManager.taskMatch.getDefaultInstance()))
                   .setSchemaDescriptor(new FindingWorkersMethodDescriptorSupplier("TaskFinding"))
                   .build();
           }
         }
      }
      return getTaskFindingMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<ProjectManager.taskMatch,
+      ProjectManager.success> getTaskRequestMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "TaskRequest",
+      requestType = ProjectManager.taskMatch.class,
+      responseType = ProjectManager.success.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<ProjectManager.taskMatch,
+      ProjectManager.success> getTaskRequestMethod() {
+    io.grpc.MethodDescriptor<ProjectManager.taskMatch, ProjectManager.success> getTaskRequestMethod;
+    if ((getTaskRequestMethod = FindingWorkersGrpc.getTaskRequestMethod) == null) {
+      synchronized (FindingWorkersGrpc.class) {
+        if ((getTaskRequestMethod = FindingWorkersGrpc.getTaskRequestMethod) == null) {
+          FindingWorkersGrpc.getTaskRequestMethod = getTaskRequestMethod = 
+              io.grpc.MethodDescriptor.<ProjectManager.taskMatch, ProjectManager.success>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "FindingWorkers", "TaskRequest"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ProjectManager.taskMatch.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  ProjectManager.success.getDefaultInstance()))
+                  .setSchemaDescriptor(new FindingWorkersMethodDescriptorSupplier("TaskRequest"))
+                  .build();
+          }
+        }
+     }
+     return getTaskRequestMethod;
   }
 
   /**
@@ -88,9 +120,19 @@ public final class FindingWorkersGrpc {
 
     /**
      */
-    public void taskFinding(ProjectManager.TaskSpecifications request,
-        io.grpc.stub.StreamObserver<ProjectManager.TaskMatch> responseObserver) {
+    public void taskFinding(ProjectManager.taskSpecifications request,
+        io.grpc.stub.StreamObserver<ProjectManager.taskMatch> responseObserver) {
       asyncUnimplementedUnaryCall(getTaskFindingMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<ProjectManager.taskMatch> taskRequest(
+        io.grpc.stub.StreamObserver<ProjectManager.success> responseObserver) {
+      return asyncUnimplementedStreamingCall(getTaskRequestMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -99,9 +141,16 @@ public final class FindingWorkersGrpc {
             getTaskFindingMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                ProjectManager.TaskSpecifications,
-                ProjectManager.TaskMatch>(
+                ProjectManager.taskSpecifications,
+                ProjectManager.taskMatch>(
                   this, METHODID_TASK_FINDING)))
+          .addMethod(
+            getTaskRequestMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                ProjectManager.taskMatch,
+                ProjectManager.success>(
+                  this, METHODID_TASK_REQUEST)))
           .build();
     }
   }
@@ -126,10 +175,21 @@ public final class FindingWorkersGrpc {
 
     /**
      */
-    public void taskFinding(ProjectManager.TaskSpecifications request,
-        io.grpc.stub.StreamObserver<ProjectManager.TaskMatch> responseObserver) {
+    public void taskFinding(ProjectManager.taskSpecifications request,
+        io.grpc.stub.StreamObserver<ProjectManager.taskMatch> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getTaskFindingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<ProjectManager.taskMatch> taskRequest(
+        io.grpc.stub.StreamObserver<ProjectManager.success> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getTaskRequestMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -153,8 +213,8 @@ public final class FindingWorkersGrpc {
 
     /**
      */
-    public java.util.Iterator<ProjectManager.TaskMatch> taskFinding(
-        ProjectManager.TaskSpecifications request) {
+    public java.util.Iterator<ProjectManager.taskMatch> taskFinding(
+        ProjectManager.taskSpecifications request) {
       return blockingServerStreamingCall(
           getChannel(), getTaskFindingMethod(), getCallOptions(), request);
     }
@@ -180,6 +240,7 @@ public final class FindingWorkersGrpc {
   }
 
   private static final int METHODID_TASK_FINDING = 0;
+  private static final int METHODID_TASK_REQUEST = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -199,8 +260,8 @@ public final class FindingWorkersGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_TASK_FINDING:
-          serviceImpl.taskFinding((ProjectManager.TaskSpecifications) request,
-              (io.grpc.stub.StreamObserver<ProjectManager.TaskMatch>) responseObserver);
+          serviceImpl.taskFinding((ProjectManager.taskSpecifications) request,
+              (io.grpc.stub.StreamObserver<ProjectManager.taskMatch>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -212,6 +273,9 @@ public final class FindingWorkersGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_TASK_REQUEST:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.taskRequest(
+              (io.grpc.stub.StreamObserver<ProjectManager.success>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -264,6 +328,7 @@ public final class FindingWorkersGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FindingWorkersFileDescriptorSupplier())
               .addMethod(getTaskFindingMethod())
+              .addMethod(getTaskRequestMethod())
               .build();
         }
       }

@@ -15,15 +15,20 @@ public final class projectManagerSchedule {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TaskSpecifications_descriptor;
+    internal_static_taskSpecifications_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TaskSpecifications_fieldAccessorTable;
+      internal_static_taskSpecifications_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TaskMatch_descriptor;
+    internal_static_taskMatch_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TaskMatch_fieldAccessorTable;
+      internal_static_taskMatch_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_success_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_success_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,17 +38,21 @@ public final class projectManagerSchedule {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\034ProjectManagerSchedule.proto\"\324\001\n\022TaskS" +
+      "\n\034ProjectManagerSchedule.proto\"\324\001\n\022taskS" +
       "pecifications\022\026\n\016project_number\030\001 \001(\t\022\014\n" +
       "\004task\030\002 \001(\t\022\024\n\014number_hours\030\003 \001(\002\022\021\n\tsta" +
       "rt_day\030\004 \001(\003\022\023\n\013start_month\030\005 \001(\003\022\022\n\nsta" +
       "rt_year\030\006 \001(\003\022\025\n\rmilestone_day\030\007 \001(\003\022\027\n\017" +
       "milestone_month\030\010 \001(\003\022\026\n\016milestone_year\030" +
-      "\t \001(\003\"G\n\tTaskMatch\022\014\n\004date\030\001 \001(\003\022\027\n\017numb" +
-      "er_of_hours\030\002 \001(\002\022\023\n\013card_number\030\003 \001(\t2D" +
-      "\n\016FindingWorkers\0222\n\013TaskFinding\022\023.TaskSp" +
-      "ecifications\032\n.TaskMatch\"\0000\001B*\n\016ProjectM" +
-      "anagerB\026projectManagerScheduleP\001b\006proto3"
+      "\t \001(\003\"\211\001\n\ttaskMatch\022\023\n\013working_day\030\001 \001(\003" +
+      "\022\025\n\rworking_month\030\002 \001(\003\022\024\n\014working_year\030" +
+      "\003 \001(\003\022\014\n\004date\030\004 \001(\003\022\027\n\017number_of_hours\030\005" +
+      " \001(\002\022\023\n\013card_number\030\006 \001(\t\"\027\n\007success\022\014\n\004" +
+      "task\030\001 \001(\t2m\n\016FindingWorkers\0222\n\013TaskFind" +
+      "ing\022\023.taskSpecifications\032\n.taskMatch\"\0000\001" +
+      "\022\'\n\013TaskRequest\022\n.taskMatch\032\010.success\"\000(" +
+      "\001B*\n\016ProjectManagerB\026projectManagerSched" +
+      "uleP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -57,18 +66,24 @@ public final class projectManagerSchedule {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_TaskSpecifications_descriptor =
+    internal_static_taskSpecifications_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_TaskSpecifications_fieldAccessorTable = new
+    internal_static_taskSpecifications_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TaskSpecifications_descriptor,
+        internal_static_taskSpecifications_descriptor,
         new java.lang.String[] { "ProjectNumber", "Task", "NumberHours", "StartDay", "StartMonth", "StartYear", "MilestoneDay", "MilestoneMonth", "MilestoneYear", });
-    internal_static_TaskMatch_descriptor =
+    internal_static_taskMatch_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_TaskMatch_fieldAccessorTable = new
+    internal_static_taskMatch_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_TaskMatch_descriptor,
-        new java.lang.String[] { "Date", "NumberOfHours", "CardNumber", });
+        internal_static_taskMatch_descriptor,
+        new java.lang.String[] { "WorkingDay", "WorkingMonth", "WorkingYear", "Date", "NumberOfHours", "CardNumber", });
+    internal_static_success_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_success_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_success_descriptor,
+        new java.lang.String[] { "Task", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

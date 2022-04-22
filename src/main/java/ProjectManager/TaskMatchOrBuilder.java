@@ -3,26 +3,41 @@
 
 package ProjectManager;
 
-public interface TaskMatchOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:TaskMatch)
+public interface taskMatchOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:taskMatch)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 date = 1;</code>
+   * <code>int64 working_day = 1;</code>
+   */
+  long getWorkingDay();
+
+  /**
+   * <code>int64 working_month = 2;</code>
+   */
+  long getWorkingMonth();
+
+  /**
+   * <code>int64 working_year = 3;</code>
+   */
+  long getWorkingYear();
+
+  /**
+   * <code>int64 date = 4;</code>
    */
   long getDate();
 
   /**
-   * <code>float number_of_hours = 2;</code>
+   * <code>float number_of_hours = 5;</code>
    */
   float getNumberOfHours();
 
   /**
-   * <code>string card_number = 3;</code>
+   * <code>string card_number = 6;</code>
    */
   java.lang.String getCardNumber();
   /**
-   * <code>string card_number = 3;</code>
+   * <code>string card_number = 6;</code>
    */
   com.google.protobuf.ByteString
       getCardNumberBytes();

@@ -4,18 +4,18 @@
 package ProjectManager;
 
 /**
- * Protobuf type {@code TaskSpecifications}
+ * Protobuf type {@code taskSpecifications}
  */
-public  final class TaskSpecifications extends
+public  final class taskSpecifications extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:TaskSpecifications)
-    TaskSpecificationsOrBuilder {
+    // @@protoc_insertion_point(message_implements:taskSpecifications)
+    taskSpecificationsOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use TaskSpecifications.newBuilder() to construct.
-  private TaskSpecifications(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use taskSpecifications.newBuilder() to construct.
+  private taskSpecifications(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private TaskSpecifications() {
+  private taskSpecifications() {
     projectNumber_ = "";
     task_ = "";
     numberHours_ = 0F;
@@ -32,7 +32,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TaskSpecifications(
+  private taskSpecifications(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -119,15 +119,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return ProjectManager.projectManagerSchedule.internal_static_TaskSpecifications_descriptor;
+    return ProjectManager.projectManagerSchedule.internal_static_taskSpecifications_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return ProjectManager.projectManagerSchedule.internal_static_TaskSpecifications_fieldAccessorTable
+    return ProjectManager.projectManagerSchedule.internal_static_taskSpecifications_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            ProjectManager.TaskSpecifications.class, ProjectManager.TaskSpecifications.Builder.class);
+            ProjectManager.taskSpecifications.class, ProjectManager.taskSpecifications.Builder.class);
   }
 
   public static final int PROJECT_NUMBER_FIELD_NUMBER = 1;
@@ -355,10 +355,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof ProjectManager.TaskSpecifications)) {
+    if (!(obj instanceof ProjectManager.taskSpecifications)) {
       return super.equals(obj);
     }
-    ProjectManager.TaskSpecifications other = (ProjectManager.TaskSpecifications) obj;
+    ProjectManager.taskSpecifications other = (ProjectManager.taskSpecifications) obj;
 
     boolean result = true;
     result = result && getProjectNumber()
@@ -422,69 +422,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(byte[] data)
+  public static ProjectManager.taskSpecifications parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(java.io.InputStream input)
+  public static ProjectManager.taskSpecifications parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProjectManager.TaskSpecifications parseDelimitedFrom(java.io.InputStream input)
+  public static ProjectManager.taskSpecifications parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskSpecifications parseDelimitedFrom(
+  public static ProjectManager.taskSpecifications parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static ProjectManager.TaskSpecifications parseFrom(
+  public static ProjectManager.taskSpecifications parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -497,7 +497,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(ProjectManager.TaskSpecifications prototype) {
+  public static Builder newBuilder(ProjectManager.taskSpecifications prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -513,26 +513,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code TaskSpecifications}
+   * Protobuf type {@code taskSpecifications}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:TaskSpecifications)
-      ProjectManager.TaskSpecificationsOrBuilder {
+      // @@protoc_insertion_point(builder_implements:taskSpecifications)
+      ProjectManager.taskSpecificationsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskSpecifications_descriptor;
+      return ProjectManager.projectManagerSchedule.internal_static_taskSpecifications_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskSpecifications_fieldAccessorTable
+      return ProjectManager.projectManagerSchedule.internal_static_taskSpecifications_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProjectManager.TaskSpecifications.class, ProjectManager.TaskSpecifications.Builder.class);
+              ProjectManager.taskSpecifications.class, ProjectManager.taskSpecifications.Builder.class);
     }
 
-    // Construct using ProjectManager.TaskSpecifications.newBuilder()
+    // Construct using ProjectManager.taskSpecifications.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -574,17 +574,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return ProjectManager.projectManagerSchedule.internal_static_TaskSpecifications_descriptor;
+      return ProjectManager.projectManagerSchedule.internal_static_taskSpecifications_descriptor;
     }
 
     @java.lang.Override
-    public ProjectManager.TaskSpecifications getDefaultInstanceForType() {
-      return ProjectManager.TaskSpecifications.getDefaultInstance();
+    public ProjectManager.taskSpecifications getDefaultInstanceForType() {
+      return ProjectManager.taskSpecifications.getDefaultInstance();
     }
 
     @java.lang.Override
-    public ProjectManager.TaskSpecifications build() {
-      ProjectManager.TaskSpecifications result = buildPartial();
+    public ProjectManager.taskSpecifications build() {
+      ProjectManager.taskSpecifications result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -592,8 +592,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public ProjectManager.TaskSpecifications buildPartial() {
-      ProjectManager.TaskSpecifications result = new ProjectManager.TaskSpecifications(this);
+    public ProjectManager.taskSpecifications buildPartial() {
+      ProjectManager.taskSpecifications result = new ProjectManager.taskSpecifications(this);
       result.projectNumber_ = projectNumber_;
       result.task_ = task_;
       result.numberHours_ = numberHours_;
@@ -641,16 +641,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof ProjectManager.TaskSpecifications) {
-        return mergeFrom((ProjectManager.TaskSpecifications)other);
+      if (other instanceof ProjectManager.taskSpecifications) {
+        return mergeFrom((ProjectManager.taskSpecifications)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(ProjectManager.TaskSpecifications other) {
-      if (other == ProjectManager.TaskSpecifications.getDefaultInstance()) return this;
+    public Builder mergeFrom(ProjectManager.taskSpecifications other) {
+      if (other == ProjectManager.taskSpecifications.getDefaultInstance()) return this;
       if (!other.getProjectNumber().isEmpty()) {
         projectNumber_ = other.projectNumber_;
         onChanged();
@@ -695,11 +695,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      ProjectManager.TaskSpecifications parsedMessage = null;
+      ProjectManager.taskSpecifications parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (ProjectManager.TaskSpecifications) e.getUnfinishedMessage();
+        parsedMessage = (ProjectManager.taskSpecifications) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -1041,41 +1041,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:TaskSpecifications)
+    // @@protoc_insertion_point(builder_scope:taskSpecifications)
   }
 
-  // @@protoc_insertion_point(class_scope:TaskSpecifications)
-  private static final ProjectManager.TaskSpecifications DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:taskSpecifications)
+  private static final ProjectManager.taskSpecifications DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new ProjectManager.TaskSpecifications();
+    DEFAULT_INSTANCE = new ProjectManager.taskSpecifications();
   }
 
-  public static ProjectManager.TaskSpecifications getDefaultInstance() {
+  public static ProjectManager.taskSpecifications getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<TaskSpecifications>
-      PARSER = new com.google.protobuf.AbstractParser<TaskSpecifications>() {
+  private static final com.google.protobuf.Parser<taskSpecifications>
+      PARSER = new com.google.protobuf.AbstractParser<taskSpecifications>() {
     @java.lang.Override
-    public TaskSpecifications parsePartialFrom(
+    public taskSpecifications parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TaskSpecifications(input, extensionRegistry);
+      return new taskSpecifications(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<TaskSpecifications> parser() {
+  public static com.google.protobuf.Parser<taskSpecifications> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<TaskSpecifications> getParserForType() {
+  public com.google.protobuf.Parser<taskSpecifications> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public ProjectManager.TaskSpecifications getDefaultInstanceForType() {
+  public ProjectManager.taskSpecifications getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
