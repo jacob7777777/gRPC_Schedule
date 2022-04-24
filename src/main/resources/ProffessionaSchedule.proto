@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "Proffesional";
-option java_outer_classname = "proffessionalSchedule";
+option java_package = "professional";
+option java_outer_classname = "ProfessionalSchedule";
 
 service Timesheets {
 rpc IntroduceProfile (profile) returns (success){}
