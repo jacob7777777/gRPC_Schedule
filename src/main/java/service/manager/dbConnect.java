@@ -27,8 +27,9 @@ public class dbConnect{
 	private float capProfWed;
 	private float capProfThur;
 	private float capProfFri;
+
 	//public String task;
-	
+
 	public void dbProfileIntegration(int cardNumber, String task,  float cap_prof_mon, float cap_prof_tue, float cap_prof_wed, float cap_prof_thu, float cap_prof_fri){
 		/*cardNumber = this.cardNumber;
 		task = this.task;
@@ -41,18 +42,19 @@ public class dbConnect{
 			//Execute a SQL query
 			String sql = "INSERT INTO Professional_profile VALUES (" + cardNumber + ", '" + task + "', " + cap_prof_mon + "," + cap_prof_tue + "," + cap_prof_wed + "," + cap_prof_thu + "," + cap_prof_fri + ")";
 			myStmt.executeUpdate(sql);
-			ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile");
+			
+			//ResultSet myRs = myStmt.executeQuery("SELECT * FROM scheduler_db.professional_profile");
+			
 			//Process the result
-			while (myRs.next()) {
-				System.out.println(myRs.getString("task")+", "+ myRs.getString("cap_prof_fri"));
-			}
-			myRs.close();
+			
+			//myRs.close();
 			myStmt.close();
 			myConn.close();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 	
 	public float dbCapacityProfileCheck(int cardNumber, int jobNumber, int dayBooked, int monthBooked, int yearBooked){
@@ -279,8 +281,6 @@ public class dbConnect{
 	public void setCapProfFri(float capProfFri) {
 		this.capProfFri = capProfFri;
 	}
-	
-	
 	
 	
 }

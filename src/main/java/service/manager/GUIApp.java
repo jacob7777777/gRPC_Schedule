@@ -30,8 +30,16 @@ public class GUIApp implements ActionListener{
 	private JTextField entryCapProfWed;
 	private JTextField entryCapProfThu;
 	private JTextField entryCapProfFri;
-	
 	private JTextArea reply1;
+	
+	private JTextField entryCardNumber1;
+	private JTextField entryJobNumber;
+	private JTextField entryHoursBooked;
+	private JTextField entryDayBooked;
+	private JTextField entryMonthBooked;
+	private JTextField entryYearBooked;
+	private JTextArea reply11;
+	
 	
 	private JTextField entry2, reply2;
 	private JTextField entry3, reply3;
@@ -60,86 +68,91 @@ public class GUIApp implements ActionListener{
 		//BoxLayout boxlayout2 = new BoxLayout(innerPanel2, BoxLayout.Y_AXIS);
 		//BoxLayout boxlayout3 = new BoxLayout(innerPanel3, BoxLayout.Y_AXIS);
 		
+		JLabel labelProfile = new JLabel("Profile")	;
+		appGrid.gridx = 0;
+		appGrid.gridy = 0;
+		panel.add(labelProfile, appGrid);
+		
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		JLabel labelCardNumber = new JLabel("Card Number: ")	;
 		appGrid.gridx = 0;
-		appGrid.gridy = 0;
+		appGrid.gridy = 1;
 		panel.add(labelCardNumber, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCardNumber = new JTextField("",5);
 		appGrid.gridx = 0;
-		appGrid.gridy = 1;
+		appGrid.gridy = 2;
 		panel.add(entryCardNumber, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelTask = new JLabel("Task: ")	;
 		appGrid.gridx = 0;
-		appGrid.gridy = 2;
+		appGrid.gridy = 3;
 		panel.add(labelTask, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryTask = new JTextField("",10);
 		appGrid.gridx = 0;
-		appGrid.gridy = 3;
+		appGrid.gridy = 4;
 		panel.add(entryTask, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
 		JLabel labelCapProf = new JLabel("Capacity profile")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 0;
+		appGrid.gridy = 1;
 		panel.add(labelCapProf, appGrid);
 		
 		JLabel labelCapProfMon = new JLabel("Monday")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 1;
+		appGrid.gridy = 2;
 		panel.add(labelCapProfMon, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfMon = new JTextField("",10);
 		appGrid.gridx = 2;
-		appGrid.gridy = 1;
+		appGrid.gridy = 2;
 		panel.add(entryCapProfMon, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfTue = new JLabel("Tuesday")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 2;
+		appGrid.gridy = 3;
 		panel.add(labelCapProfTue, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfTue = new JTextField("",10);
 		appGrid.gridx = 2;
-		appGrid.gridy = 2;
+		appGrid.gridy = 3;
 		panel.add(entryCapProfTue, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfWed = new JLabel("Wednesday")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 3;
+		appGrid.gridy = 4;
 		panel.add(labelCapProfWed, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfWed = new JTextField("",10);
 		appGrid.gridx = 2;
-		appGrid.gridy = 3;
+		appGrid.gridy = 4;
 		panel.add(entryCapProfWed, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfThu = new JLabel("Thursday")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 4;
+		appGrid.gridy = 5;
 		panel.add(labelCapProfThu, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfThu = new JTextField("",10);
 		appGrid.gridx = 2;
-		appGrid.gridy = 4;
+		appGrid.gridy = 5;
 		panel.add(entryCapProfThu, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfFri = new JLabel("Friday")	;
 		appGrid.gridx = 1;
-		appGrid.gridy = 5;
+		appGrid.gridy = 6;
 		panel.add(labelCapProfFri, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfFri = new JTextField("",10);
 		appGrid.gridx = 2;
-		appGrid.gridy = 5;
+		appGrid.gridy = 6;
 		panel.add(entryCapProfFri, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
@@ -147,7 +160,7 @@ public class GUIApp implements ActionListener{
 		JButton button = new JButton("Introduce profile");
 		button.addActionListener(this);
 		appGrid.gridx = 1;
-		appGrid.gridy = 7;
+		appGrid.gridy = 8;
 		panel.add(button, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
@@ -155,7 +168,7 @@ public class GUIApp implements ActionListener{
 		reply1 = new JTextArea(3, 20);
 		reply1 .setEditable(false);
 		appGrid.gridx = 2;
-		appGrid.gridy = 7;
+		appGrid.gridy = 8;
 		panel.add(reply1, appGrid);
 		
 		//panel.setLayout(boxlayout);
@@ -166,6 +179,82 @@ public class GUIApp implements ActionListener{
 		//panel.add(innerPanel);
 		//panel.add(innerPanel2);
 		//panel.add(innerPanel3);
+		
+		JLabel labelAbsenceRequest = new JLabel("Absence Request")	;
+		appGrid.gridx = 3;
+		appGrid.gridy = 0;	
+		panel.add(labelAbsenceRequest, appGrid);
+		
+		JLabel labelCardNumber1 = new JLabel("Card Number")	;
+		appGrid.gridx = 3;
+		appGrid.gridy = 1;
+		panel.add(labelCardNumber1, appGrid);
+		entryCardNumber1 = new JTextField("",10);
+		appGrid.gridx = 3;
+		appGrid.gridy = 2;
+		panel.add(entryCardNumber1, appGrid);
+		
+		JLabel labelJobNumber = new JLabel("Job Number")	;
+		appGrid.gridx = 3;
+		appGrid.gridy = 3;
+		panel.add(labelJobNumber, appGrid);
+		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		entryJobNumber = new JTextField("",10);
+		appGrid.gridx = 3;
+		appGrid.gridy = 4;
+		panel.add(entryJobNumber, appGrid);
+		
+		JLabel labelHoursBooked = new JLabel("Hours Booked")	;
+		appGrid.gridx = 4;
+		appGrid.gridy = 1;
+		panel.add(labelHoursBooked, appGrid);
+		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		entryHoursBooked = new JTextField("",10);
+		appGrid.gridx = 5;
+		appGrid.gridy = 1;
+		panel.add(entryHoursBooked, appGrid);
+		
+		JLabel labelDayBooked = new JLabel("Day Booked")	;
+		appGrid.gridx = 4;
+		appGrid.gridy = 2;
+		panel.add(labelDayBooked, appGrid);
+		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		entryDayBooked = new JTextField("",10);
+		appGrid.gridx = 5;
+		appGrid.gridy = 2;
+		panel.add(entryDayBooked, appGrid);
+		
+		JLabel labelMonthBooked = new JLabel("Month Booked")	;
+		appGrid.gridx = 4;
+		appGrid.gridy = 3;
+		panel.add(labelMonthBooked, appGrid);
+		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		entryMonthBooked = new JTextField("",10);
+		appGrid.gridx = 5;
+		appGrid.gridy = 3;
+		panel.add(entryMonthBooked, appGrid);
+		
+		JLabel labelYearBooked = new JLabel("Year Booked")	;
+		appGrid.gridx = 4;
+		appGrid.gridy = 4;
+		panel.add(labelYearBooked, appGrid);
+		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+		entryYearBooked = new JTextField("",10);
+		appGrid.gridx = 5;
+		appGrid.gridy = 4;
+		panel.add(entryYearBooked, appGrid);
+		
+		JButton button2 = new JButton("Request Abscence");
+		button.addActionListener(this);
+		appGrid.gridx = 4;
+		appGrid.gridy = 8;
+		panel.add(button2, appGrid);
+		
+		reply11 = new JTextArea(3, 20);
+		reply11.setEditable(false);
+		appGrid.gridx = 5;
+		appGrid.gridy = 8;
+		panel.add(reply11, appGrid);
 
 		return panel;
 
@@ -250,7 +339,7 @@ public class GUIApp implements ActionListener{
 		panel.setLayout(boxlayout);
 
 		// Set border for the panel
-		panel.setBorder(new EmptyBorder(new Insets(50, 100, 50, 100)));
+		panel.setBorder(new EmptyBorder(new Insets(100, 100, 100, 100)));
 	
 		panel.add( getService1JPanel() );
 		panel.add( getService2JPanel() );

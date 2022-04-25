@@ -9,6 +9,7 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import service.manager.ServiceRegistration;
 
+
 public class EmailNotificationsServer extends NotificationImplBase{
 
 private static final Logger logger = Logger.getLogger(EmailNotificationsServer.class.getName());

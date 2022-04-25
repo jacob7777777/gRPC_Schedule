@@ -28,6 +28,7 @@ public class ProffessionalRequestServer {
 	static class proffessionalSchedule extends professional.TimesheetsGrpc.TimesheetsImplBase{
 		@Override
 		public void introduceProfile(profile request, StreamObserver<success> responseObserver){
+			String registration;
 			
 			//client message
 			int cardNumber = request.getCardNumber();
@@ -44,14 +45,18 @@ public class ProffessionalRequestServer {
 			System.out.println("Capacity profile for Thursday is: " + capProfThu);
 			float capProfFri = request.getCapProfFri();
 			System.out.println("Capacity profile for Friday is: " + capProfFri);
+			
 			service.manager.dbConnect dataTransfer = new service.manager.dbConnect();
-			dataTransfer.dbProfileIntegration(cardNumber, task, capProfMon, capProfTue, capProfWed, capProfThu, capProfFri);
 			
 			//server response
 			success.Builder responseBuilder = success.newBuilder();
+			
+			dataTransfer.dbProfileIntegration(cardNumber, task, capProfMon, capProfTue, capProfWed, capProfThu, capProfFri);
 			responseBuilder.setMessage("Your registration has completed successfully.");//esto tengo que arreglarlo porque aunque no se grabe sale que esta registrarlo
 			responseObserver.onNext(responseBuilder.build());
 			responseObserver.onCompleted();
+			
+		
 		}
 		
 		@Override
@@ -73,6 +78,10 @@ public class ProffessionalRequestServer {
 			//dbConnect dataTransfer;
 			//dataTransfer = new dbConnect();
 			service.manager.dbConnect dataTransfer = new service.manager.dbConnect();
+			
+			success.Builder responseBuilder = success.newBuilder();
+			
+			if (cardNumber1 != 0) {
 			float alreadyBookedHours = dataTransfer.dbCapacityProfileCheck(cardNumber1, jobNumber, dayBooked, monthBooked, yearBooked);
 			float basicTime = (float) 7.5;
 			float remainingTime = basicTime - alreadyBookedHours;
@@ -86,7 +95,6 @@ public class ProffessionalRequestServer {
 			//dataTransfer.dbIntegration(cardNumber, task, cap_prof_mon, cap_prof_tue, cap_prof_wed, cap_prof_thu, cap_prof_fri);
 			
 			//server response
-			success.Builder responseBuilder = success.newBuilder();
 			if ((remainingTime - hoursBooked) >= 0){
 				//dbConnect dataTransfer2 = new dbConnect();
 				dataTransfer.dbAbsenceRegistration(cardNumber1, jobNumber, hoursBooked, dayBooked, monthBooked, yearBooked);
@@ -102,6 +110,9 @@ public class ProffessionalRequestServer {
 				responseObserver.onNext(responseBuilder.build());
 				responseBuilder.setMessage("You already have " + alreadyBookedHours + " hours already booked in this date.");
 				//responseObserver.onNext(responseBuilder.build());
+			}
+			} else {
+				responseBuilder.setMessage("Sorry your time can't be registered.");
 			}
 			responseObserver.onNext(responseBuilder.build());
 			//responseBuilder.setMessage("Your registration has completed successfully.");
