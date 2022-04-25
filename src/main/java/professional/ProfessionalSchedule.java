@@ -43,16 +43,16 @@ public final class ProfessionalSchedule {
       "ap_prof_mon\030\003 \001(\002\022\024\n\014cap_prof_tue\030\004 \001(\002\022" +
       "\024\n\014cap_prof_wed\030\005 \001(\002\022\024\n\014cap_prof_thu\030\006 " +
       "\001(\002\022\024\n\014cap_prof_fri\030\007 \001(\002\"\032\n\007success\022\017\n\007" +
-      "message\030\001 \001(\t\"\216\001\n\016absenceRequest\022\023\n\013card" +
-      "_number\030\001 \001(\005\022\022\n\njob_number\030\002 \001(\005\022\024\n\014hou" +
-      "rs_booked\030\003 \001(\002\022\022\n\nday_booked\030\004 \001(\005\022\024\n\014m" +
-      "onth_booked\030\005 \001(\005\022\023\n\013year_booked\030\006 \001(\0052\237" +
-      "\001\n\nTimesheets\022(\n\020IntroduceProfile\022\010.prof" +
-      "ile\032\010.success\"\000\0223\n\022AbsenceEmptyAgenda\022\017." +
-      "absenceRequest\032\010.success\"\0000\001\0222\n\021AbsenceF" +
-      "ullAgenda\022\017.absenceRequest\032\010.success\"\000(\001" +
-      "B&\n\014professionalB\024ProfessionalScheduleP\001" +
-      "b\006proto3"
+      "message\030\001 \001(\t\"\217\001\n\016absenceRequest\022\024\n\014card" +
+      "_number1\030\001 \001(\005\022\022\n\njob_number\030\002 \001(\005\022\024\n\014ho" +
+      "urs_booked\030\003 \001(\002\022\022\n\nday_booked\030\004 \001(\005\022\024\n\014" +
+      "month_booked\030\005 \001(\005\022\023\n\013year_booked\030\006 \001(\0052" +
+      "\237\001\n\nTimesheets\022(\n\020IntroduceProfile\022\010.pro" +
+      "file\032\010.success\"\000\0223\n\022AbsenceEmptyAgenda\022\017" +
+      ".absenceRequest\032\010.success\"\0000\001\0222\n\021Absence" +
+      "FullAgenda\022\017.absenceRequest\032\010.success\"\000(" +
+      "\001B&\n\014professionalB\024ProfessionalScheduleP" +
+      "\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -83,7 +83,7 @@ public final class ProfessionalSchedule {
     internal_static_absenceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_absenceRequest_descriptor,
-        new java.lang.String[] { "CardNumber", "JobNumber", "HoursBooked", "DayBooked", "MonthBooked", "YearBooked", });
+        new java.lang.String[] { "CardNumber1", "JobNumber", "HoursBooked", "DayBooked", "MonthBooked", "YearBooked", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

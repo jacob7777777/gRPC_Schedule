@@ -34,18 +34,18 @@ public class ProffessionalRequestServer {
 			System.out.println("CardNumber is: " + cardNumber);
 			String task = request.getTask();
 			System.out.println("task is: " + task);
-			float cap_prof_mon = request.getCapProfMon();
-			System.out.println("Capacity profile for Monday is: " + cap_prof_mon);
-			float cap_prof_tue = request.getCapProfTue();
-			System.out.println("Capacity profile for Tuesday is: " + cap_prof_tue);
-			float cap_prof_wed = request.getCapProfWed();
-			System.out.println("Capacity profile for Wednesday is: " + cap_prof_wed);
-			float cap_prof_thu = request.getCapProfThu();
-			System.out.println("Capacity profile for Thursday is: " + cap_prof_thu);
-			float cap_prof_fri = request.getCapProfFri();
-			System.out.println("Capacity profile for Friday is: " + cap_prof_fri);
+			float capProfMon = request.getCapProfMon();
+			System.out.println("Capacity profile for Monday is: " + capProfMon);
+			float capProfTue = request.getCapProfTue();
+			System.out.println("Capacity profile for Tuesday is: " + capProfTue);
+			float capProfWed = request.getCapProfWed();
+			System.out.println("Capacity profile for Wednesday is: " + capProfWed);
+			float capProfThu = request.getCapProfThu();
+			System.out.println("Capacity profile for Thursday is: " + capProfThu);
+			float capProfFri = request.getCapProfFri();
+			System.out.println("Capacity profile for Friday is: " + capProfFri);
 			service.manager.dbConnect dataTransfer = new service.manager.dbConnect();
-			dataTransfer.dbProfileIntegration(cardNumber, task, cap_prof_mon, cap_prof_tue, cap_prof_wed, cap_prof_thu, cap_prof_fri);
+			dataTransfer.dbProfileIntegration(cardNumber, task, capProfMon, capProfTue, capProfWed, capProfThu, capProfFri);
 			
 			//server response
 			success.Builder responseBuilder = success.newBuilder();
@@ -58,8 +58,8 @@ public class ProffessionalRequestServer {
 		public void absenceEmptyAgenda(absenceRequest request, StreamObserver<success> responseObserver){
 			
 			//client message
-			int cardNumber = request.getCardNumber();
-			System.out.println("CardNumber is: " + cardNumber);
+			int cardNumber1 = request.getCardNumber1();
+			System.out.println("CardNumber is: " + cardNumber1);
 			int jobNumber = request.getJobNumber();
 			System.out.println("Job number is: " + jobNumber);
 			float hoursBooked = request.getHoursBooked();
@@ -73,7 +73,7 @@ public class ProffessionalRequestServer {
 			//dbConnect dataTransfer;
 			//dataTransfer = new dbConnect();
 			service.manager.dbConnect dataTransfer = new service.manager.dbConnect();
-			float alreadyBookedHours = dataTransfer.dbCapacityProfileCheck(cardNumber, jobNumber, dayBooked, monthBooked, yearBooked);
+			float alreadyBookedHours = dataTransfer.dbCapacityProfileCheck(cardNumber1, jobNumber, dayBooked, monthBooked, yearBooked);
 			float basicTime = (float) 7.5;
 			float remainingTime = basicTime - alreadyBookedHours;
 			//if ((remainingTime - hoursBooked) >= 0){
@@ -89,7 +89,7 @@ public class ProffessionalRequestServer {
 			success.Builder responseBuilder = success.newBuilder();
 			if ((remainingTime - hoursBooked) >= 0){
 				//dbConnect dataTransfer2 = new dbConnect();
-				dataTransfer.dbAbsenceRegistration(cardNumber, jobNumber, hoursBooked, dayBooked, monthBooked, yearBooked);
+				dataTransfer.dbAbsenceRegistration(cardNumber1, jobNumber, hoursBooked, dayBooked, monthBooked, yearBooked);
 				//System.out.println("Your time has successfully being registered.");
 				responseBuilder.setMessage("Your time has successfully being registered.");
 				responseObserver.onNext(responseBuilder.build());

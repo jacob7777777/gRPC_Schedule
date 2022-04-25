@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private absenceRequest() {
-    cardNumber_ = 0;
+    cardNumber1_ = 0;
     jobNumber_ = 0;
     hoursBooked_ = 0F;
     dayBooked_ = 0;
@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            cardNumber_ = input.readInt32();
+            cardNumber1_ = input.readInt32();
             break;
           }
           case 16: {
@@ -110,13 +110,13 @@ private static final long serialVersionUID = 0L;
             professional.absenceRequest.class, professional.absenceRequest.Builder.class);
   }
 
-  public static final int CARD_NUMBER_FIELD_NUMBER = 1;
-  private int cardNumber_;
+  public static final int CARD_NUMBER1_FIELD_NUMBER = 1;
+  private int cardNumber1_;
   /**
-   * <code>int32 card_number = 1;</code>
+   * <code>int32 card_number1 = 1;</code>
    */
-  public int getCardNumber() {
-    return cardNumber_;
+  public int getCardNumber1() {
+    return cardNumber1_;
   }
 
   public static final int JOB_NUMBER_FIELD_NUMBER = 2;
@@ -178,8 +178,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (cardNumber_ != 0) {
-      output.writeInt32(1, cardNumber_);
+    if (cardNumber1_ != 0) {
+      output.writeInt32(1, cardNumber1_);
     }
     if (jobNumber_ != 0) {
       output.writeInt32(2, jobNumber_);
@@ -205,9 +205,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (cardNumber_ != 0) {
+    if (cardNumber1_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, cardNumber_);
+        .computeInt32Size(1, cardNumber1_);
     }
     if (jobNumber_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -245,8 +245,8 @@ private static final long serialVersionUID = 0L;
     professional.absenceRequest other = (professional.absenceRequest) obj;
 
     boolean result = true;
-    result = result && (getCardNumber()
-        == other.getCardNumber());
+    result = result && (getCardNumber1()
+        == other.getCardNumber1());
     result = result && (getJobNumber()
         == other.getJobNumber());
     result = result && (
@@ -270,8 +270,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CARD_NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getCardNumber();
+    hash = (37 * hash) + CARD_NUMBER1_FIELD_NUMBER;
+    hash = (53 * hash) + getCardNumber1();
     hash = (37 * hash) + JOB_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getJobNumber();
     hash = (37 * hash) + HOURS_BOOKED_FIELD_NUMBER;
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      cardNumber_ = 0;
+      cardNumber1_ = 0;
 
       jobNumber_ = 0;
 
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public professional.absenceRequest buildPartial() {
       professional.absenceRequest result = new professional.absenceRequest(this);
-      result.cardNumber_ = cardNumber_;
+      result.cardNumber1_ = cardNumber1_;
       result.jobNumber_ = jobNumber_;
       result.hoursBooked_ = hoursBooked_;
       result.dayBooked_ = dayBooked_;
@@ -508,8 +508,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(professional.absenceRequest other) {
       if (other == professional.absenceRequest.getDefaultInstance()) return this;
-      if (other.getCardNumber() != 0) {
-        setCardNumber(other.getCardNumber());
+      if (other.getCardNumber1() != 0) {
+        setCardNumber1(other.getCardNumber1());
       }
       if (other.getJobNumber() != 0) {
         setJobNumber(other.getJobNumber());
@@ -555,28 +555,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int cardNumber_ ;
+    private int cardNumber1_ ;
     /**
-     * <code>int32 card_number = 1;</code>
+     * <code>int32 card_number1 = 1;</code>
      */
-    public int getCardNumber() {
-      return cardNumber_;
+    public int getCardNumber1() {
+      return cardNumber1_;
     }
     /**
-     * <code>int32 card_number = 1;</code>
+     * <code>int32 card_number1 = 1;</code>
      */
-    public Builder setCardNumber(int value) {
+    public Builder setCardNumber1(int value) {
       
-      cardNumber_ = value;
+      cardNumber1_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 card_number = 1;</code>
+     * <code>int32 card_number1 = 1;</code>
      */
-    public Builder clearCardNumber() {
+    public Builder clearCardNumber1() {
       
-      cardNumber_ = 0;
+      cardNumber1_ = 0;
       onChanged();
       return this;
     }

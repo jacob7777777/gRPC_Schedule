@@ -27,7 +27,7 @@ message success {
 }
 
 message absenceRequest {
-	int32 card_number = 1;
+	int32 card_number1 = 1;
 	int32 job_number = 2;
 	float hours_booked = 3;
 	int32 day_booked = 4;

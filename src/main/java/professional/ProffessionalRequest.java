@@ -16,7 +16,7 @@ public class ProffessionalRequest {
 		String host = "localhost";
 		ManagedChannel newChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 		// Build message
-		profile cardNumber = profile.newBuilder().setCardNumber(12).build();
+		profile cardNumber = profile.newBuilder().setCardNumber(120).build();
 		profile task = profile.newBuilder().setTask("test").build();
 		profile capProfMon = profile.newBuilder().setCapProfMon(1).build();
 		profile capProfTue = profile.newBuilder().setCapProfTue(2).build();
@@ -25,7 +25,7 @@ public class ProffessionalRequest {
 		profile capProfFri = profile.newBuilder().setCapProfFri(5).build();
 		
 	
-		absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber(7).build();
+		absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber1(7).build();
 		absenceRequest jobNumber = absenceRequest.newBuilder().setJobNumber(8).build();
 		absenceRequest hoursBooked = absenceRequest.newBuilder().setHoursBooked(1).build();
 		absenceRequest dayBooked = absenceRequest.newBuilder().setDayBooked(1).build();

@@ -23,18 +23,20 @@ public class GUIApp implements ActionListener{
 
 
 	//private JTextField entry1, reply1;
-	private JTextField entry1;
-	private JTextField entry12;
-	private JTextField entry13;
-	private JTextField entry14;
-	private JTextField entry15;
-	private JTextField entry16;
-	private JTextField entry17;
+	private JTextField entryCardNumber;
+	private JTextField entryTask;
+	private JTextField entryCapProfMon;
+	private JTextField entryCapProfTue;
+	private JTextField entryCapProfWed;
+	private JTextField entryCapProfThu;
+	private JTextField entryCapProfFri;
+	
+	private JTextArea reply1;
 	
 	private JTextField entry2, reply2;
 	private JTextField entry3, reply3;
 	
-	private JTextArea reply1;
+	
 	
 	//https://www.youtube.com/watch?v=ohNqQagkDDY
 	//https://stackoverflow.com/questions/7858752/in-java-how-do-you-add-a-jpanel-to-another-jpanel
@@ -59,86 +61,86 @@ public class GUIApp implements ActionListener{
 		//BoxLayout boxlayout3 = new BoxLayout(innerPanel3, BoxLayout.Y_AXIS);
 		
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		JLabel label = new JLabel("Card Number: ")	;
+		JLabel labelCardNumber = new JLabel("Card Number: ")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 0;
-		panel.add(label, appGrid);
+		panel.add(labelCardNumber, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry1 = new JTextField("",5);
+		entryCardNumber = new JTextField("",5);
 		appGrid.gridx = 0;
 		appGrid.gridy = 1;
-		panel.add(entry1, appGrid);
+		panel.add(entryCardNumber, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		JLabel label1 = new JLabel("Task: ")	;
+		JLabel labelTask = new JLabel("Task: ")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 2;
-		panel.add(label1, appGrid);
+		panel.add(labelTask, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry12 = new JTextField("",10);
+		entryTask = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 3;
-		panel.add(entry12, appGrid);
+		panel.add(entryTask, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
-		JLabel CapProf = new JLabel("Capacity profile")	;
+		JLabel labelCapProf = new JLabel("Capacity profile")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 0;
-		panel.add(CapProf, appGrid);
+		panel.add(labelCapProf, appGrid);
 		
-		JLabel CapProfMon = new JLabel("Monday")	;
+		JLabel labelCapProfMon = new JLabel("Monday")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 1;
-		panel.add(CapProfMon, appGrid);
+		panel.add(labelCapProfMon, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry13 = new JTextField("",10);
+		entryCapProfMon = new JTextField("",10);
 		appGrid.gridx = 2;
 		appGrid.gridy = 1;
-		panel.add(entry13, appGrid);
+		panel.add(entryCapProfMon, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		JLabel CapProfTue = new JLabel("Tuesday")	;
+		JLabel labelCapProfTue = new JLabel("Tuesday")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 2;
-		panel.add(CapProfTue, appGrid);
+		panel.add(labelCapProfTue, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry14 = new JTextField("",10);
+		entryCapProfTue = new JTextField("",10);
 		appGrid.gridx = 2;
 		appGrid.gridy = 2;
-		panel.add(entry14, appGrid);
+		panel.add(entryCapProfTue, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		JLabel CapProfWed = new JLabel("Wednesday")	;
+		JLabel labelCapProfWed = new JLabel("Wednesday")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 3;
-		panel.add(CapProfWed, appGrid);
+		panel.add(labelCapProfWed, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry15 = new JTextField("",10);
+		entryCapProfWed = new JTextField("",10);
 		appGrid.gridx = 2;
 		appGrid.gridy = 3;
-		panel.add(entry15, appGrid);
+		panel.add(entryCapProfWed, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		JLabel CapProfThu = new JLabel("Thursday")	;
+		JLabel labelCapProfThu = new JLabel("Thursday")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 4;
-		panel.add(CapProfThu, appGrid);
+		panel.add(labelCapProfThu, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry16 = new JTextField("",10);
+		entryCapProfThu = new JTextField("",10);
 		appGrid.gridx = 2;
 		appGrid.gridy = 4;
-		panel.add(entry16, appGrid);
+		panel.add(entryCapProfThu, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		JLabel CapProfFri = new JLabel("Friday")	;
+		JLabel labelCapProfFri = new JLabel("Friday")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 5;
-		panel.add(CapProfFri, appGrid);
+		panel.add(labelCapProfFri, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
-		entry17 = new JTextField("",10);
+		entryCapProfFri = new JTextField("",10);
 		appGrid.gridx = 2;
 		appGrid.gridy = 5;
-		panel.add(entry17, appGrid);
+		panel.add(entryCapProfFri, appGrid);
 		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 
@@ -270,40 +272,56 @@ public class GUIApp implements ActionListener{
 		JButton button = (JButton)e.getSource();
 		String label = button.getActionCommand();  
 
-		if (label.equals("Invoke Service 1")) {
+		if (label.equals("Introduce profile")) {
 			System.out.println("service 1 to be invoked ...");
-
-		
+			
 			/*
 			 * 
 			 */
 			//Build a channel
 			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
 			
-			// Building and preparing message to send
-			profile cardNumber = profile.newBuilder().setCardNumber(entry1.getX()).build();//OJO QUE AQUI HE METIDO UN entry1.getX
-			profile task = profile.newBuilder().setTask("test").build();
-			profile capProfMon = profile.newBuilder().setCapProfMon(1).build();
-			profile capProfTue = profile.newBuilder().setCapProfTue(2).build();
-			profile capProfWed = profile.newBuilder().setCapProfWed(3).build();
-			profile capProfThu = profile.newBuilder().setCapProfThu(4).build();
-			profile capProfFri = profile.newBuilder().setCapProfFri(5).build();
 			
-			absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber(7).build();
+						
+			// Building and preparing message to send
+			profile request = profile.newBuilder()
+					.setCardNumber(Integer.parseInt(entryCardNumber.getText()))
+					.setTask(entryTask.getText())
+					.setCapProfMon(Float.parseFloat(entryCapProfMon.getText()))
+					.setCapProfTue(Float.parseFloat(entryCapProfTue.getText()))
+					.setCapProfWed(Float.parseFloat(entryCapProfWed.getText()))
+					.setCapProfThu(Float.parseFloat(entryCapProfThu.getText()))
+					.setCapProfFri(Float.parseFloat(entryCapProfFri.getText()))
+					.build();
+			
+			System.out.println(request);
+			
+			// Create a stub, pass the channel to the stub
+			professional.TimesheetsGrpc.TimesheetsBlockingStub bstub = TimesheetsGrpc.newBlockingStub(channel);
+			bstub.introduceProfile(request);
+			//professional.introduceProfile(request);
+			
+			//profile cardNumber = profile.newBuilder().setCardNumber(Integer.parseInt(entryCardNumber.getText())).build();//OJO QUE AQUI HE METIDO UN entry1.getX
+			//profile task = profile.newBuilder().setTask(entryTask.getText()).build();
+			//profile capProfMon = profile.newBuilder().setCapProfMon(Float.parseFloat(entryCapProfMon.getText())).build();
+			//profile capProfTue = profile.newBuilder().setCapProfTue(Float.parseFloat(entryCapProfTue.getText())).build();
+			//profile capProfWed = profile.newBuilder().setCapProfWed(Float.parseFloat(entryCapProfWed.getText())).build();
+			//profile capProfThu = profile.newBuilder().setCapProfThu(Float.parseFloat(entryCapProfThu.getText())).build();
+			//profile capProfFri = profile.newBuilder().setCapProfFri(Float.parseFloat(entryCapProfFri.getText())).build();
+			
+			absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber1(7).build();
 			absenceRequest jobNumber = absenceRequest.newBuilder().setJobNumber(8).build();
 			absenceRequest hoursBooked = absenceRequest.newBuilder().setHoursBooked(1).build();
 			absenceRequest dayBooked = absenceRequest.newBuilder().setDayBooked(1).build();
 			absenceRequest monthBooked = absenceRequest.newBuilder().setMonthBooked(1).build();
 			absenceRequest yearBooked = absenceRequest.newBuilder().setYearBooked(1).build();
 			
-			// Create a stub, pass the channel to the stub
-			professional.TimesheetsGrpc.TimesheetsBlockingStub bstub = TimesheetsGrpc.newBlockingStub(channel);
 			
 			//retreving reply from service
 			//ds.service1.ResponseMessage response = blockingStub.service1Do(request);
 
 			// Calling the methods or rpcs from the service
-			success response = bstub.introduceProfile(cardNumber);
+			success response = bstub.introduceProfile(null);
 			System.out.println(response.getMessage());
 			Iterator<success> responses = bstub.absenceEmptyAgenda(null);
 			while (responses.hasNext()) {

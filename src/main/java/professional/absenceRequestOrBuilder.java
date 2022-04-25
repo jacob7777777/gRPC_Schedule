@@ -8,9 +8,9 @@ public interface absenceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 card_number = 1;</code>
+   * <code>int32 card_number1 = 1;</code>
    */
-  int getCardNumber();
+  int getCardNumber1();
 
   /**
    * <code>int32 job_number = 2;</code>

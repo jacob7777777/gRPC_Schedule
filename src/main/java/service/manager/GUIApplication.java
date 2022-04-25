@@ -162,7 +162,7 @@ public class GUIApplication {
 
 				//String name = "Joe and Ann";
 
-				answer request = answer.newBuilder().setConfirmationRefusal(false).build();
+				answer request = answer.newBuilder().setConfirmationRefusal(name1.getBoolean).build();
 
 				thanks response = blockingStub.jobConfirmation(request);
 
