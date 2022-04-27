@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private taskSpecifications() {
-    projectNumber_ = "";
+    projectNumber_ = 0L;
     task_ = "";
     numberHours_ = 0F;
     startDay_ = 0L;
@@ -51,10 +51,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            projectNumber_ = s;
+            projectNumber_ = input.readInt64();
             break;
           }
           case 18: {
@@ -131,37 +130,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_NUMBER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectNumber_;
+  private long projectNumber_;
   /**
-   * <code>string project_number = 1;</code>
+   * <code>int64 project_number = 1;</code>
    */
-  public java.lang.String getProjectNumber() {
-    java.lang.Object ref = projectNumber_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      projectNumber_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string project_number = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getProjectNumberBytes() {
-    java.lang.Object ref = projectNumber_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      projectNumber_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getProjectNumber() {
+    return projectNumber_;
   }
 
   public static final int TASK_FIELD_NUMBER = 2;
@@ -275,8 +249,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getProjectNumberBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectNumber_);
+    if (projectNumber_ != 0L) {
+      output.writeInt64(1, projectNumber_);
     }
     if (!getTaskBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, task_);
@@ -311,8 +285,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getProjectNumberBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectNumber_);
+    if (projectNumber_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, projectNumber_);
     }
     if (!getTaskBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, task_);
@@ -361,8 +336,8 @@ private static final long serialVersionUID = 0L;
     project.manager.taskSpecifications other = (project.manager.taskSpecifications) obj;
 
     boolean result = true;
-    result = result && getProjectNumber()
-        .equals(other.getProjectNumber());
+    result = result && (getProjectNumber()
+        == other.getProjectNumber());
     result = result && getTask()
         .equals(other.getTask());
     result = result && (
@@ -393,7 +368,8 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PROJECT_NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getProjectNumber().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getProjectNumber());
     hash = (37 * hash) + TASK_FIELD_NUMBER;
     hash = (53 * hash) + getTask().hashCode();
     hash = (37 * hash) + NUMBER_HOURS_FIELD_NUMBER;
@@ -550,7 +526,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      projectNumber_ = "";
+      projectNumber_ = 0L;
 
       task_ = "";
 
@@ -651,9 +627,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(project.manager.taskSpecifications other) {
       if (other == project.manager.taskSpecifications.getDefaultInstance()) return this;
-      if (!other.getProjectNumber().isEmpty()) {
-        projectNumber_ = other.projectNumber_;
-        onChanged();
+      if (other.getProjectNumber() != 0L) {
+        setProjectNumber(other.getProjectNumber());
       }
       if (!other.getTask().isEmpty()) {
         task_ = other.task_;
@@ -709,71 +684,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object projectNumber_ = "";
+    private long projectNumber_ ;
     /**
-     * <code>string project_number = 1;</code>
+     * <code>int64 project_number = 1;</code>
      */
-    public java.lang.String getProjectNumber() {
-      java.lang.Object ref = projectNumber_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        projectNumber_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public long getProjectNumber() {
+      return projectNumber_;
     }
     /**
-     * <code>string project_number = 1;</code>
+     * <code>int64 project_number = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getProjectNumberBytes() {
-      java.lang.Object ref = projectNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        projectNumber_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string project_number = 1;</code>
-     */
-    public Builder setProjectNumber(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setProjectNumber(long value) {
+      
       projectNumber_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string project_number = 1;</code>
+     * <code>int64 project_number = 1;</code>
      */
     public Builder clearProjectNumber() {
       
-      projectNumber_ = getDefaultInstance().getProjectNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string project_number = 1;</code>
-     */
-    public Builder setProjectNumberBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      projectNumber_ = value;
+      projectNumber_ = 0L;
       onChanged();
       return this;
     }

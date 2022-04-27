@@ -46,7 +46,7 @@ public class ProjectManagerServer {
 	
 	static class projectManagerSchedule extends FindingWorkersImplBase{
 		@Override
-		public void taskFinding(taskSpecifications request, StreamObserver<taskMatch> responseObserver){
+		public void taskFinding(taskSpecifications request, StreamObserver<success> responseObserver){
 			
 			//client message
 			try {
@@ -72,11 +72,11 @@ public class ProjectManagerServer {
 			LocalDate today = LocalDate.now();
 			
 			//server response
-			taskMatch.Builder responseBuilder = taskMatch.newBuilder();
+			success.Builder responseBuilder = success.newBuilder();
 				if (startDate.isAfter(deadline)){
-					responseBuilder.setCardNumber("Please enter valid period.");
+					responseBuilder.setTask("Please enter valid period.");
 				} else if (today.isAfter(startDate)){
-					responseBuilder.setCardNumber("Today is " + today + " but start date is " + startDate + ".");
+					responseBuilder.setTask("Today is " + today + " but start date is " + startDate + ".");
 				} else {
 					Stream<LocalDate> projectPeriod = startDate.datesUntil(deadline);//I receive a Stream of all the dates between today and the deadline
 					Object[] projectPeriodDates = projectPeriod.toArray();
@@ -108,7 +108,7 @@ public class ProjectManagerServer {
 								//System.out.println(dataTransfer.task);
 								if(dataTransfer.getCardNumberTaskCheck() == 0) {
 									numberHoursCounter = 0;
-									responseBuilder.setCardNumber("Sorry no professional for this task");
+									responseBuilder.setTask("Sorry no professional for this task");
 									System.out.println("Task not found");
 									responseObserver.onNext(responseBuilder.build());
 									//break;
@@ -121,7 +121,7 @@ public class ProjectManagerServer {
 									//System.out.println(numberHoursCounter);
 									//System.out.println("Back to else loop");
 									//System.out.println(dataTransfer.getNumberOfHoursTaskCheck());
-									responseBuilder.setCardNumber("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables. ");
+									responseBuilder.setTask("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables. ");
 									System.out.println("Employee with card number " + dataTransfer.getCardNumberTaskCheck() + " has " + dataTransfer.getNumberOfHoursTaskCheck() + " hours availables on the " + projectPeriodDate);
 									responseObserver.onNext(responseBuilder.build());
 									numberHoursCounter = numberHoursCounter - dataTransfer.getNumberOfHoursTaskCheck();
@@ -138,7 +138,7 @@ public class ProjectManagerServer {
 						//System.out.println(month);
 						// System.out.println(year);
 						// System.out.println(weekDay);
-						responseBuilder.setCardNumber("Have a good day");
+						responseBuilder.setTask("Have a good day");
 					}
 					//int weekDay = calendar(startYear, startMonth, startDay);
 					//Database.dbConnect dataTransfer = new Database.dbConnect();
@@ -148,8 +148,8 @@ public class ProjectManagerServer {
 				responseObserver.onCompleted();
 				
 			} catch (Exception e) {
-				taskMatch.Builder responseBuilder = taskMatch.newBuilder();
-				responseBuilder.setCardNumber("Please enter valid values.");
+				success.Builder responseBuilder = success.newBuilder();
+				responseBuilder.setTask("Please enter valid values.");
 				responseObserver.onNext(responseBuilder.build());
 				responseObserver.onCompleted();
 			}

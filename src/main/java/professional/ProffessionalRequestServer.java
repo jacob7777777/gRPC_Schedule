@@ -28,7 +28,6 @@ public class ProffessionalRequestServer {
 	static class proffessionalSchedule extends professional.TimesheetsGrpc.TimesheetsImplBase{
 		@Override
 		public void introduceProfile(profile request, StreamObserver<success> responseObserver){
-			String registration;
 			
 			//client message
 			int cardNumber = request.getCardNumber();

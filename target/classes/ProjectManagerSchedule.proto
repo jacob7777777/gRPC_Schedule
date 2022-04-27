@@ -5,7 +5,7 @@ option java_package = "project.manager";
 option java_outer_classname = "ProjectManagerSchedule";
 
 service FindingWorkers {
-	rpc TaskFinding(taskSpecifications) returns (stream taskMatch){}
+	rpc TaskFinding(taskSpecifications) returns (stream success){}
 	//rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
 	rpc TaskRequest (stream taskMatch) returns (success){}
 	//rpc extraWorkerNeeded (stream TaskSpecifications) returns (Success){}
@@ -14,7 +14,7 @@ service FindingWorkers {
 }
 
 message taskSpecifications {
-	string project_number = 1;
+	int64 project_number = 1;
 	string task = 2;
 	float number_hours = 3;
 	int64 start_day = 4;

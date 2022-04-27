@@ -39,7 +39,7 @@ public final class ProjectManagerSchedule {
   static {
     java.lang.String[] descriptorData = {
       "\n\034ProjectManagerSchedule.proto\"\324\001\n\022taskS" +
-      "pecifications\022\026\n\016project_number\030\001 \001(\t\022\014\n" +
+      "pecifications\022\026\n\016project_number\030\001 \001(\003\022\014\n" +
       "\004task\030\002 \001(\t\022\024\n\014number_hours\030\003 \001(\002\022\021\n\tsta" +
       "rt_day\030\004 \001(\003\022\023\n\013start_month\030\005 \001(\003\022\022\n\nsta" +
       "rt_year\030\006 \001(\003\022\025\n\rmilestone_day\030\007 \001(\003\022\027\n\017" +
@@ -47,11 +47,11 @@ public final class ProjectManagerSchedule {
       "\t \001(\003\"{\n\ttaskMatch\022\023\n\013working_day\030\001 \001(\003\022" +
       "\025\n\rworking_month\030\002 \001(\003\022\024\n\014working_year\030\003" +
       " \001(\003\022\027\n\017number_of_hours\030\004 \001(\002\022\023\n\013card_nu" +
-      "mber\030\005 \001(\t\"\027\n\007success\022\014\n\004task\030\001 \001(\t2m\n\016F" +
-      "indingWorkers\0222\n\013TaskFinding\022\023.taskSpeci" +
-      "fications\032\n.taskMatch\"\0000\001\022\'\n\013TaskRequest" +
-      "\022\n.taskMatch\032\010.success\"\000(\001B+\n\017project.ma" +
-      "nagerB\026ProjectManagerScheduleP\001b\006proto3"
+      "mber\030\005 \001(\t\"\027\n\007success\022\014\n\004task\030\001 \001(\t2k\n\016F" +
+      "indingWorkers\0220\n\013TaskFinding\022\023.taskSpeci" +
+      "fications\032\010.success\"\0000\001\022\'\n\013TaskRequest\022\n" +
+      ".taskMatch\032\010.success\"\000(\001B+\n\017project.mana" +
+      "gerB\026ProjectManagerScheduleP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

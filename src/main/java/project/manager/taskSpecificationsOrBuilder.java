@@ -8,14 +8,9 @@ public interface taskSpecificationsOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string project_number = 1;</code>
+   * <code>int64 project_number = 1;</code>
    */
-  java.lang.String getProjectNumber();
-  /**
-   * <code>string project_number = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectNumberBytes();
+  long getProjectNumber();
 
   /**
    * <code>string task = 2;</code>
