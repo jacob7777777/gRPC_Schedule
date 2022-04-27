@@ -5,9 +5,8 @@ option java_package = "email.notification";
 option java_outer_classname = "Notifications";
 
 service Notification {
-	rpc JobConfirmation (answer) returns (thanks){}
+	rpc JobConfirmation (answer) returns  (thanks){}
 	rpc TaskChange (answer) returns (thanks){}
-	rpc AbsenceConfirmation (answer) returns (thanks){}
 }
 
 message answer {

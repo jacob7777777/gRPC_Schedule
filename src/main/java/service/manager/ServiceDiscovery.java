@@ -14,9 +14,7 @@ public class ServiceDiscovery {
 	private int port;
 	private String host;
 	
-	
-	
-	//option 1
+
 	private static class MyServiceListener implements ServiceListener{
 
 		private int port;
@@ -50,14 +48,12 @@ public class ServiceDiscovery {
 			
 			//now do a few printouts
 			System.out.println("host " + serviceInfo.getHostAddress());
-			//this.setHost(serviceInfo.getHostAddress());
 			System.out.println("port " + serviceInfo.getPort());
 			this.setPort(serviceInfo.getPort());
 			System.out.println("type " + serviceInfo.getType());
 			System.out.println("name " + serviceInfo.getName());
 			System.out.println("Computername " + serviceInfo.getServer());
 			System.out.println("desc/properties " + serviceInfo.getNiceTextString());
-			//System.out.println("desc/properties " + serviceInfo.);
 		}
 
 		public int getPort() {
@@ -92,7 +88,7 @@ public class ServiceDiscovery {
 			
 			//will discover the service based on service type
 			//String service_type = "_grpc._tcp.local";				
-			
+
 			//need to listen for services added/removed etc.
 			
 			//jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
@@ -112,13 +108,10 @@ public class ServiceDiscovery {
 			
 			
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//pass the serviceInfo back to the client

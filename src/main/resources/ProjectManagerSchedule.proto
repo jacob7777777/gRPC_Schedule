@@ -6,10 +6,7 @@ option java_outer_classname = "ProjectManagerSchedule";
 
 service FindingWorkers {
 	rpc TaskFinding(taskSpecifications) returns (stream success){}
-	//rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
 	rpc TaskRequest (stream taskMatch) returns (success){}
-	//rpc extraWorkerNeeded (stream TaskSpecifications) returns (Success){}
-	//rpc changes (stream TaskSpecifications) returns (TaskMatch){}
 
 }
 
@@ -30,7 +27,7 @@ message taskMatch {
 	int64 working_month = 2;
 	int64 working_year =  3;
 	float number_of_hours = 4;
-	string card_number = 5;
+	int64 card_number = 5;
 }
 
 message success {

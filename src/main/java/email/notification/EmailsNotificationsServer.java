@@ -11,16 +11,11 @@ public class EmailsNotificationsServer {
 
 	private Server server;
 	public static void main(String[] args) throws IOException, InterruptedException {
-		// TODO Auto-generated method stub
 		EmailsNotificationsServer ourServer = new EmailsNotificationsServer();
 		ourServer.start();
 
 	}
 
-
-
-//clase 7 minuto 30. Ya hemos dado unary, Server Streaming y ahora salta a client streaming
-//puedo cambiar el primero a client streaming o empezar ya con el 2 proto.
 	
 	private void start() throws IOException, InterruptedException {
 		System.out.println("Starting gRPC Server");
@@ -41,7 +36,7 @@ public class EmailsNotificationsServer {
 			
 			//server response
 			thanks.Builder responseBuilder = thanks.newBuilder();
-			responseBuilder.setMessage("Your registration has completed successfully.");//esto tengo que arreglarlo porque aunque no se grabe sale que esta registrarlo
+			responseBuilder.setMessage("Your registration has completed successfully.");
 			responseObserver.onNext(responseBuilder.build());
 			responseObserver.onCompleted();
 		}

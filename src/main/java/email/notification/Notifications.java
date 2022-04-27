@@ -35,11 +35,10 @@ public final class Notifications {
     java.lang.String[] descriptorData = {
       "\n\027EmailNotification.proto\"&\n\006answer\022\034\n\024C" +
       "onfirmation_Refusal\030\001 \001(\010\"\031\n\006thanks\022\017\n\007m" +
-      "essage\030\001 \001(\t2\202\001\n\014Notification\022%\n\017JobConf" +
-      "irmation\022\007.answer\032\007.thanks\"\000\022 \n\nTaskChan" +
-      "ge\022\007.answer\032\007.thanks\"\000\022)\n\023AbsenceConfirm" +
-      "ation\022\007.answer\032\007.thanks\"\000B%\n\022email.notif" +
-      "icationB\rNotificationsP\001b\006proto3"
+      "essage\030\001 \001(\t2W\n\014Notification\022%\n\017JobConfi" +
+      "rmation\022\007.answer\032\007.thanks\"\000\022 \n\nTaskChang" +
+      "e\022\007.answer\032\007.thanks\"\000B%\n\022email.notificat" +
+      "ionB\rNotificationsP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

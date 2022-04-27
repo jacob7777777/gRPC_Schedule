@@ -19,15 +19,17 @@ import project.manager.taskSpecifications;
 import project.manager.FindingWorkersGrpc.FindingWorkersBlockingStub;
 import project.manager.FindingWorkersGrpc.FindingWorkersStub;
 import email.notification.NotificationGrpc;
+import email.notification.NotificationGrpc.NotificationStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 
 public class GUIApp implements ActionListener{
 
-
-	//private JTextField entry1, reply1;
+	//IO GUI fields
+	// Professional
 	private JTextField entryCardNumber;
 	private JTextField entryTask;
 	private JTextField entryCapProfMon;
@@ -36,7 +38,6 @@ public class GUIApp implements ActionListener{
 	private JTextField entryCapProfThu;
 	private JTextField entryCapProfFri;
 	private JTextArea reply1;
-	
 	private JTextField entryCardNumber1;
 	private JTextField entryJobNumber;
 	private JTextField entryHoursBooked;
@@ -45,9 +46,7 @@ public class GUIApp implements ActionListener{
 	private JTextField entryYearBooked;
 	private JTextArea reply11;
 	
-	
 	//Project Manager
-	
 	private	JTextField	entryProjectNumber;
 	private	JTextField	entryTask2;
 	private	JTextField	entryNumberHours;
@@ -57,8 +56,7 @@ public class GUIApp implements ActionListener{
 	private	JTextField	entryMilestoneDay;
 	private	JTextField	entryMilestoneMonth;
 	private	JTextField	entryMilestoneYear;
-	private JTextArea reply2;
-									
+	private JTextArea reply2;								
 	private	JTextField	entryWorkingDay;
 	private	JTextField	entryWorkingMonth;
 	private	JTextField	entryWorkingYear;
@@ -66,71 +64,52 @@ public class GUIApp implements ActionListener{
 	private	JTextField	entryCardNumber3;
 	private JTextArea reply21;
 	
-	
 	//Notifications
-
-	//private JTextField entry3, reply3;
-	
 	private JTextArea reply3;
 	private JTextArea reply31;
 	
+	// This section offers three different panels and corresponding grids in order to build a GUI
+	// Labels, entry fields, buttons and text area response compose it.
 	
-	
-	//https://www.youtube.com/watch?v=ohNqQagkDDY
-	//https://stackoverflow.com/questions/7858752/in-java-how-do-you-add-a-jpanel-to-another-jpanel
-	//https://www.youtube.com/watch?v=Kl3klve_rmQ
-	//https://www.youtube.com/watch?v=dvzAuq-YDpM
+	// Professional client
 	private JPanel getService1JPanel() {
 
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel(); // Create panel in order to add labels, fields an buttons
 		panel.setBackground(Color.gray);
-		//JPanel innerPanel = new JPanel();
-		//JPanel innerPanel2 = new JPanel();
-		//JPanel innerPanel3 = new JPanel();
-		
-		
-		//BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.PAGE_AXIS);
+
 		panel.setLayout(new GridBagLayout());
-		GridBagConstraints appGrid = new GridBagConstraints();	
-		appGrid.fill = GridBagConstraints.HORIZONTAL;
-		appGrid.insets = new Insets(5, 5, 5, 5);
-	
-		//BoxLayout boxlayout = new BoxLayout(innerPanel, BoxLayout.LINE_AXIS);
-		//BoxLayout boxlayout2 = new BoxLayout(innerPanel2, BoxLayout.Y_AXIS);
-		//BoxLayout boxlayout3 = new BoxLayout(innerPanel3, BoxLayout.Y_AXIS);
-		
-		JLabel labelProfessional = new JLabel("PROFESSIONAL")	;
-		appGrid.gridx = 0;
+		GridBagConstraints appGrid = new GridBagConstraints(); // Create the grid
+		appGrid.fill = GridBagConstraints.HORIZONTAL; // Align the grid
+		appGrid.insets = new Insets(5, 5, 5, 5); // Set border for the panel
+
+		JLabel labelProfessional = new JLabel("PROFESSIONAL")	; // Create the label
+		appGrid.gridx = 0; // Place the label
 		appGrid.gridy = 0;
 		panel.add(labelProfessional, appGrid);
 		
+		// Introduce profile RPC
 		JLabel labelProfile = new JLabel("Profile")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 1;
 		panel.add(labelProfile, appGrid);
 		
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		JLabel labelCardNumber = new JLabel("Card Number: ")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 2;
 		panel.add(labelCardNumber, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCardNumber = new JTextField("",5);
 		appGrid.gridx = 0;
 		appGrid.gridy = 3;
 		panel.add(entryCardNumber, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelTask = new JLabel("Task: ")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 4;
 		panel.add(labelTask, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryTask = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 5;
 		panel.add(entryTask, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
 		JLabel labelCapProf = new JLabel("Capacity profile")	;
 		appGrid.gridx = 0;
@@ -141,86 +120,65 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 0;
 		appGrid.gridy = 7;
 		panel.add(labelCapProfMon, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfMon = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 8;
 		panel.add(entryCapProfMon, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfTue = new JLabel("Tuesday")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 9;
 		panel.add(labelCapProfTue, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfTue = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 10;
 		panel.add(entryCapProfTue, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfWed = new JLabel("Wednesday")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 11;
 		panel.add(labelCapProfWed, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfWed = new JTextField();
 		appGrid.gridx = 0;
 		appGrid.gridy = 12;
 		panel.add(entryCapProfWed, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfThu = new JLabel("Thursday")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 13;
 		panel.add(labelCapProfThu, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfThu = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 14;
 		panel.add(entryCapProfThu, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelCapProfFri = new JLabel("Friday")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 15;
 		panel.add(labelCapProfFri, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryCapProfFri = new JTextField("",10);
 		appGrid.gridx = 0;
 		appGrid.gridy = 16;
 		panel.add(entryCapProfFri, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
 		JLabel labelStar = new JLabel("********************************************")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 17;
 		panel.add(labelStar, appGrid);
 		
-
-		JButton button = new JButton("Introduce profile");
+		JButton button = new JButton("Introduce profile"); // Add button
 		button.addActionListener(this);
 		appGrid.gridx = 0;
 		appGrid.gridy = 18;
 		panel.add(button, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 
-		//reply1 = new JTextField("", 10);
-		reply1 = new JTextArea(500, 500);
-		reply1 .setEditable(false);
+		reply1 = new JTextArea(500, 500); // Add reply area
+		reply1.setEditable(false);
 		appGrid.gridx = 0;
 		appGrid.gridy = 19;
 		panel.add(reply1, appGrid);
 		
-		//panel.setLayout(boxlayout);
-		//innerPanel.setLayout(boxlayout);	
-		//innerPanel2.setLayout(boxlayout2);	
-		//innerPanel3.setLayout(boxlayout3);
-		
-		//panel.add(innerPanel);
-		//panel.add(innerPanel2);
-		//panel.add(innerPanel3);
-		
+		//Absence Request RPC		
 		JLabel labelAbsenceRequest = new JLabel("Absence Request")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 1;	
@@ -239,7 +197,6 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 1;
 		appGrid.gridy = 4;
 		panel.add(labelJobNumber, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryJobNumber = new JTextField("",10);
 		appGrid.gridx = 1;
 		appGrid.gridy = 5;
@@ -249,7 +206,6 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 1;
 		appGrid.gridy = 6;
 		panel.add(labelHoursBooked, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryHoursBooked = new JTextField("",10);
 		appGrid.gridx = 1;
 		appGrid.gridy = 7;
@@ -259,7 +215,6 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 1;
 		appGrid.gridy = 8;
 		panel.add(labelDayBooked, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryDayBooked = new JTextField();
 		appGrid.gridx = 1;
 		appGrid.gridy = 9;
@@ -269,7 +224,6 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 1;
 		appGrid.gridy = 10;
 		panel.add(labelMonthBooked, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryMonthBooked = new JTextField("",10);
 		appGrid.gridx = 1;
 		appGrid.gridy = 11;
@@ -279,7 +233,6 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 1;
 		appGrid.gridy = 12;
 		panel.add(labelYearBooked, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		entryYearBooked = new JTextField("",10);
 		appGrid.gridx = 1;
 		appGrid.gridy = 13;
@@ -305,7 +258,8 @@ public class GUIApp implements ActionListener{
 		return panel;
 
 	}
-
+	
+	// Project Manager client
 	private JPanel getService2JPanel() {
 
 		JPanel panel = new JPanel();
@@ -315,15 +269,13 @@ public class GUIApp implements ActionListener{
 		GridBagConstraints appGrid = new GridBagConstraints();	
 		appGrid.fill = GridBagConstraints.HORIZONTAL;
 		appGrid.insets = new Insets(5, 5, 5, 5);
-		//BoxLayout boxlayout = new BoxLayout(innerPanel, BoxLayout.LINE_AXIS);
-		//BoxLayout boxlayout2 = new BoxLayout(innerPanel2, BoxLayout.Y_AXIS);
-		//BoxLayout boxlayout3 = new BoxLayout(innerPanel3, BoxLayout.Y_AXIS);
 		
 		JLabel labelProfile = new JLabel("PROJECT MANAGER")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 0;
 		panel.add(labelProfile, appGrid);
-
+		
+		// Task Finder RPC
 		JLabel labelTaskFinder = new JLabel("Task Finder")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 1;
@@ -427,8 +379,7 @@ public class GUIApp implements ActionListener{
 		appGrid.gridy = 22;
 		panel.add(reply2, appGrid);
 
-		///////////////////////////////////////////////////
-		
+		//Task Request RPC
 		JLabel labelTaskRequest = new JLabel("Task Request")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 1;
@@ -461,7 +412,7 @@ public class GUIApp implements ActionListener{
 		appGrid.gridy = 7;
 		panel.add(entryWorkingDay, appGrid);
 		
-		JLabel labelWorkingMonth = new JLabel("Working day")	;
+		JLabel labelWorkingMonth = new JLabel("Working month")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 8;
 		panel.add(labelWorkingMonth, appGrid);
@@ -470,7 +421,7 @@ public class GUIApp implements ActionListener{
 		appGrid.gridy = 9;
 		panel.add(entryWorkingMonth, appGrid);
 		
-		JLabel labelWorkingYear = new JLabel("Working day")	;
+		JLabel labelWorkingYear = new JLabel("Working year")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 10;
 		panel.add(labelWorkingYear, appGrid);
@@ -496,12 +447,11 @@ public class GUIApp implements ActionListener{
 		appGrid.gridy = 22;
 		panel.add(reply21, appGrid);
 		
-		
-		
 		return panel;
-
 	}
 
+	
+	// Notifications client
 	private JPanel getService3JPanel() {
 
 		JPanel panel = new JPanel();
@@ -517,19 +467,17 @@ public class GUIApp implements ActionListener{
 		appGrid.gridy = 0;
 		panel.add(labelProfessional, appGrid);
 		
+		// First Notification RPC
 		JLabel labelProfile = new JLabel("Job confirmation")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 1;
 		panel.add(labelProfile, appGrid);
-		
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
+
 		JLabel labelConfirmation = new JLabel("Confirmation:")	;
 		appGrid.gridx = 0;
 		appGrid.gridy = 2;
 		panel.add(labelConfirmation, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		JCheckBox checkBox1 = new JCheckBox("Confirmation");  
-		//checkBox1.setBounds(100,100, 50,50);  
 		appGrid.gridx = 0;
 		appGrid.gridy = 3;
 		panel.add(checkBox1, appGrid);
@@ -544,49 +492,23 @@ public class GUIApp implements ActionListener{
 		appGrid.gridx = 0;
 		appGrid.gridy = 21;
 		panel.add(button3, appGrid);
-		
-/*
-		JLabel label = new JLabel("Enter value")	;
-		panel.add(label);
-		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-		entry3 = new JTextField("",10);
-		panel.add(entry3);
-		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-		JButton button = new JButton("Invoke Service 3");
-		button.addActionListener(this);
-		panel.add(button);
-		panel.add(Box.createRigidArea(new Dimension(10, 0)));
-
-		reply3 = new JTextField("", 10);
-		reply3 .setEditable(false);
-		panel.add(reply3 );
-
-		panel.setLayout(boxlayout);*/
-		
-
-		
+				
 		reply3 = new JTextArea(3, 50);
 		reply3.setEditable(false);
 		appGrid.gridx = 0;
 		appGrid.gridy = 22;
 		panel.add(reply3, appGrid);
 
-		
-		
-		//////////////////////////////////
-		//////////////////////////////////
+		// Second Notification
 		JLabel labelAbs = new JLabel("Absence Confirmation")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 1;
 		panel.add(labelAbs, appGrid);
 		
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		JLabel labelAbsConfirmation = new JLabel("Confirmation: ")	;
 		appGrid.gridx = 1;
 		appGrid.gridy = 2;
 		panel.add(labelAbsConfirmation, appGrid);
-		//panel.add(Box.createRigidArea(new Dimension(10, 10)));
 		JCheckBox checkBox2 = new JCheckBox("Confirmation");  
 		checkBox2.setBounds(100,100, 50,50);  
 		appGrid.gridx = 1;
@@ -611,46 +533,34 @@ public class GUIApp implements ActionListener{
 		panel.add(reply31, appGrid);
 
 		return panel;
-
-
 	}
 
-
+	
+	// This section offers an aggregated GUI view of the three different clients in a master template
 	public static void main(String[] args) {
-
-		GUIApp gui = new GUIApp();
-
+		GUIApp gui = new GUIApp(); //Build GUI
 		gui.build();
 	}
 
 	private void build() { 
 
 		JFrame frame = new JFrame("GUI Application with the 3 services");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Stop running
 
-		// Set the panel to add buttons
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.blue);
 
-		// Set the BoxLayout to be X_AXIS: from left to right
-		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
-
+		BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS); // Set the BoxLayout to be X_AXIS: from left to right
 		panel.setLayout(boxlayout);
 
-		// Set border for the panel
 		panel.setBorder(new EmptyBorder(new Insets(50, 50, 50, 50)));
 	
 		panel.add(getService1JPanel());
 		panel.add(getService2JPanel());
 		panel.add(getService3JPanel());
 
-
-		// Set size for the frame
-		frame.setSize(300,300);
-
-		// Set the window to be visible as the default to be false
-		frame.add(panel);
+		frame.setSize(300,300); // Set size for the frame
+		frame.add(panel); // Set the window to be visible as the default to be false
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -663,15 +573,10 @@ public class GUIApp implements ActionListener{
 
 		if (label.equals("Introduce profile")) {
 			System.out.println("Introduce profile from the professional service to be invoked ...");
-			
-			/*
-			 * 
-			 */
+
 			//Build a channel
 			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
-			
-			
-						
+					
 			// Building and preparing message to send
 			profile request = profile.newBuilder()
 					.setCardNumber(Integer.parseInt(entryCardNumber.getText()))
@@ -683,93 +588,28 @@ public class GUIApp implements ActionListener{
 					.setCapProfFri(Float.parseFloat(entryCapProfFri.getText()))
 					.build();
 			
-			System.out.println(request);
-		
-			/*
-			absenceRequest request1 = absenceRequest.newBuilder()
-					.setCardNumber1(Integer.parseInt(entryCardNumber1.getText()))
-					.setJobNumber(Integer.parseInt(entryTask.getText()))
-					.setHoursBooked(Float.parseFloat(entryHoursBooked.getText()))
-					.setDayBooked(Integer.parseInt(entryDayBooked.getText()))
-					.setMonthBooked(Integer.parseInt(entryMonthBooked.getText()))
-					.setYearBooked(Integer.parseInt(entryYearBooked.getText()))
-					.build();
-			*/
-			
 			// Create a stub, pass the channel to the stub
 			professional.TimesheetsGrpc.TimesheetsBlockingStub bstub = TimesheetsGrpc.newBlockingStub(channel);
 			bstub.introduceProfile(request);
-			//bstub.absenceEmptyAgenda(request1);
-			//professional.introduceProfile(request);
-			
-			//profile cardNumber = profile.newBuilder().setCardNumber(Integer.parseInt(entryCardNumber.getText())).build();//OJO QUE AQUI HE METIDO UN entry1.getX
-			//profile task = profile.newBuilder().setTask(entryTask.getText()).build();
-			//profile capProfMon = profile.newBuilder().setCapProfMon(Float.parseFloat(entryCapProfMon.getText())).build();
-			//profile capProfTue = profile.newBuilder().setCapProfTue(Float.parseFloat(entryCapProfTue.getText())).build();
-			//profile capProfWed = profile.newBuilder().setCapProfWed(Float.parseFloat(entryCapProfWed.getText())).build();
-			//profile capProfThu = profile.newBuilder().setCapProfThu(Float.parseFloat(entryCapProfThu.getText())).build();
-			//profile capProfFri = profile.newBuilder().setCapProfFri(Float.parseFloat(entryCapProfFri.getText())).build();
-			
-			//absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber1(7).build();
-			//absenceRequest jobNumber = absenceRequest.newBuilder().setJobNumber(8).build();
-			//absenceRequest hoursBooked = absenceRequest.newBuilder().setHoursBooked(1).build();
-			//absenceRequest dayBooked = absenceRequest.newBuilder().setDayBooked(1).build();
-			//absenceRequest monthBooked = absenceRequest.newBuilder().setMonthBooked(1).build();
-			//absenceRequest yearBooked = absenceRequest.newBuilder().setYearBooked(1).build();
-			
-			
-			//retreving reply from service
-			//ds.service1.ResponseMessage response = blockingStub.service1Do(request);
 
 			// Calling the methods or rpcs from the service
 			success response = bstub.introduceProfile(null);
-			System.out.println(response.getMessage());
-			/*
-			Iterator<success> responses = bstub.absenceEmptyAgenda(null);
-			while (responses.hasNext()) {
-				success iteratedResponse = responses.next();
-				System.out.println(iteratedResponse.getMessage());
-			}*/
-			
 			
 			reply1.setText(String.valueOf(response));
-			//reply11.setText(String.valueOf(responses));
-			
-			
+
 			// Shutdown the channel
 			try {
 				channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		
 		}
 		
 		if (label.equals("Request Absence")){
 			System.out.println("Request Absence from Professional service to be invoked ...");
-			
-			/*
-			 * 
-			 */
-			//Build a channel
+
 			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
-			
-			
-						
-			// Building and preparing message to send
-			/*profile request = profile.newBuilder()
-					.setCardNumber(Integer.parseInt(entryCardNumber.getText()))
-					.setTask(entryTask.getText())
-					.setCapProfMon(Float.parseFloat(entryCapProfMon.getText()))
-					.setCapProfTue(Float.parseFloat(entryCapProfTue.getText()))
-					.setCapProfWed(Float.parseFloat(entryCapProfWed.getText()))
-					.setCapProfThu(Float.parseFloat(entryCapProfThu.getText()))
-					.setCapProfFri(Float.parseFloat(entryCapProfFri.getText()))
-					.build();
-			
-			System.out.println(request);
-		*/
+			professional.TimesheetsGrpc.TimesheetsBlockingStub bstub = TimesheetsGrpc.newBlockingStub(channel);
 			
 			absenceRequest request = absenceRequest.newBuilder()
 					.setCardNumber1(Integer.parseInt(entryCardNumber1.getText()))
@@ -780,56 +620,22 @@ public class GUIApp implements ActionListener{
 					.setYearBooked(Integer.parseInt(entryYearBooked.getText()))
 					.build();
 			
-			Iterator <success> successMessages;
+			Iterator <success> responses;
 			
 			try {
-				logInfo("Message: ", )
-			}
-			// Create a stub, pass the channel to the stub
-			professional.TimesheetsGrpc.TimesheetsBlockingStub bstub = TimesheetsGrpc.newBlockingStub(channel);
-			//bstub.introduceProfile(request);
-			bstub.absenceEmptyAgenda(request);
-			//professional.introduceProfile(request);
+				responses = bstub.absenceEmptyAgenda(request);
+				while (responses.hasNext()) {
+					success iteratedResponse = responses.next();
+					System.out.println(iteratedResponse.getMessage());
+					reply11.setText(String.valueOf(responses));
+				}
+			} catch (StatusRuntimeException e1) {
+		        System.out.println("RPC failed" + e1.getStatus());
+		    }
 			
-			//profile cardNumber = profile.newBuilder().setCardNumber(Integer.parseInt(entryCardNumber.getText())).build();//OJO QUE AQUI HE METIDO UN entry1.getX
-			//profile task = profile.newBuilder().setTask(entryTask.getText()).build();
-			//profile capProfMon = profile.newBuilder().setCapProfMon(Float.parseFloat(entryCapProfMon.getText())).build();
-			//profile capProfTue = profile.newBuilder().setCapProfTue(Float.parseFloat(entryCapProfTue.getText())).build();
-			//profile capProfWed = profile.newBuilder().setCapProfWed(Float.parseFloat(entryCapProfWed.getText())).build();
-			//profile capProfThu = profile.newBuilder().setCapProfThu(Float.parseFloat(entryCapProfThu.getText())).build();
-			//profile capProfFri = profile.newBuilder().setCapProfFri(Float.parseFloat(entryCapProfFri.getText())).build();
-			
-			//absenceRequest cardNumber1 = absenceRequest.newBuilder().setCardNumber1(7).build();
-			//absenceRequest jobNumber = absenceRequest.newBuilder().setJobNumber(8).build();
-			//absenceRequest hoursBooked = absenceRequest.newBuilder().setHoursBooked(1).build();
-			//absenceRequest dayBooked = absenceRequest.newBuilder().setDayBooked(1).build();
-			//absenceRequest monthBooked = absenceRequest.newBuilder().setMonthBooked(1).build();
-			//absenceRequest yearBooked = absenceRequest.newBuilder().setYearBooked(1).build();
-			
-			
-			//retreving reply from service
-			//ds.service1.ResponseMessage response = blockingStub.service1Do(request);
-
-			// Calling the methods or rpcs from the service
-			//success response = bstub.introduceProfile(null);
-			//System.out.println(response.getMessage());
-			
-			Iterator<success> responses = bstub.absenceEmptyAgenda(null);
-			while (responses.hasNext()) {
-				success iteratedResponse = responses.next();
-				System.out.println(iteratedResponse.getMessage());
-			}
-			
-			
-			//reply1.setText(String.valueOf(response));
-			reply11.setText(String.valueOf(responses));
-			
-			
-			// Shutdown the channel
 			try {
 				channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
 			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}	
 		}
@@ -839,10 +645,8 @@ public class GUIApp implements ActionListener{
 
 			int port = 50052;
 			String host = "localhost";
-			ManagedChannel newChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
-	
-			
-			// Build message
+			ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
+
 			taskSpecifications request = taskSpecifications.newBuilder()
 					.setProjectNumber(Integer.parseInt(entryProjectNumber.getText()))
 					.setTask((String)(entryTask2.getText()))
@@ -854,46 +658,9 @@ public class GUIApp implements ActionListener{
 					.setMilestoneMonth(Integer.parseInt(entryMilestoneMonth.getText()))
 					.setMilestoneYear(Integer.parseInt(entryMilestoneYear.getText()))					
 					.build();
-			
-			System.out.println(request);
-			
-			/*			
-			taskSpecifications projectNumber = taskSpecifications.newBuilder().setProjectNumber("test").build();
-			taskSpecifications task = taskSpecifications.newBuilder().setTask("test").build();
-			taskSpecifications numberHours = taskSpecifications.newBuilder().setNumberHours(1).build();
-			taskSpecifications startDay = taskSpecifications.newBuilder().setStartDay(2).build();
-			taskSpecifications startMonth = taskSpecifications.newBuilder().setStartMonth(3).build();
-			taskSpecifications startYear = taskSpecifications.newBuilder().setStartYear(4).build();
-			taskSpecifications milestoneDay = taskSpecifications.newBuilder().setMilestoneDay(5).build();
-			taskSpecifications milestoneMonth = taskSpecifications.newBuilder().setMilestoneMonth(5).build();
-			taskSpecifications milestoneYear = taskSpecifications.newBuilder().setMilestoneYear(5).build();
-			*/
-			
-			/*
-			taskMatch request2 = taskMatch.newBuilder().setWorkingDay(23)
-					.setWorkingMonth(4)
-					.setWorkingYear(2022)
-					.setNumberOfHours(4)
-					.setCardNumber("test")
-					.build();
-					
-			*/
 
-			/*
-			taskMatch workingDay = taskMatch.newBuilder().setWorkingDay(23).build();
-			taskMatch workingMonth = taskMatch.newBuilder().setWorkingMonth(4).build();
-			taskMatch workingYear = taskMatch.newBuilder().setWorkingYear(2022).build();
-			taskMatch numberOfHours = taskMatch.newBuilder().setNumberOfHours(4).build();
-			taskMatch cardNumber = taskMatch.newBuilder().setCardNumber("test").build();
-			*/
+			FindingWorkersBlockingStub bstub = FindingWorkersGrpc.newBlockingStub(channel); //blocking stub for server stream
 			
-			
-			
-			// Create a stub, pass the channel to the stub
-			FindingWorkersBlockingStub bstub = FindingWorkersGrpc.newBlockingStub(newChannel); //blocking stub for server stream
-			
-			//FindingWorkersStub asyncStub = FindingWorkersGrpc.newStub(newChannel); //asynchronous stub for client streaming 
-			// Calling the methods or rpcs from the service
 			bstub.taskFinding(request);
 			Iterator<project.manager.success> responses = bstub.taskFinding(null);
 			while (responses.hasNext()) {
@@ -902,181 +669,78 @@ public class GUIApp implements ActionListener{
 			}
 			
 			reply2.setText(String.valueOf(responses));
-			//newResponse responseInt = bstub.getFirstInt(cString);
-			//System.out.println("Now print our response from the getFirstInt rpc" + responseInt.getFirstInt());
-			// Shutdown the channel
-			
-			//////////////////////////////////////////////////////
-			/*
-			//Client streaming
-			StreamObserver<success> responseObserver = new StreamObserver<success>() {
 
-				@Override
-				public void onNext(success value) {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void onError(Throwable t) {
-					// TODO Auto-generated method stub
-					
-				}
-
-				@Override
-				public void onCompleted() {
-					// TODO Auto-generated method stub
-					
-
-
-					
-				}};
-				
-			//StreamObserver so requestObserver from grpc library
-				StreamObserver<taskMatch> requestObserver = asyncStub.taskRequest(null);
-				requestObserver.onNext(null);
-				//requestObserver.onNext(workingMonth);
-				//requestObserver.onNext(workingYear);
-				//requestObserver.onNext(numberOfHours);
-				//requestObserver.onNext(cardNumber);
-				System.out.println("Client has finished sending messages");
-				requestObserver.onCompleted();
-			*/
-			/////////////////////////////////////////////////////
-			
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
-			try {
-				newChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				try {
+					channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
 			}
-		
-			/*
-			 * 
-			 
-			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
-			Service2Grpc.Service2BlockingStub blockingStub = Service2Grpc.newBlockingStub(channel);
 
-			//preparing message to send
-			ds.service2.RequestMessage request = ds.service2.RequestMessage.newBuilder().setText(entry2.getText()).build();
-
-			//retreving reply from service
-			ds.service2.ResponseMessage response = blockingStub.service2Do(request);
-
-			reply2.setText( String.valueOf( response.getLength()) );
-			*/
 		}
 		
-		if (label.equals("Task Request")) {
-			System.out.println("service 3 to be invoked ...");
+
+		
+		if (label.equals("Task Request")){
+			System.out.println("service Task Request to be invoked ...");
 			int port = 50052;
 			String host = "localhost";
-			ManagedChannel newChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
+			ManagedChannel channel1 = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 			
-
-			//FindingWorkersBlockingStub bstub = FindingWorkersGrpc.newBlockingStub(newChannel); //blocking stub for server stream
-			FindingWorkersStub asyncStub = FindingWorkersGrpc.newStub(newChannel); //asynchronous stub for client streaming 
-		
 			//Client streaming
-			
-			//https://www.baeldung.com/java-grpc-streaming
 			StreamObserver<success> responseObserver = new StreamObserver<success>() {
-
+				
 				@Override
 				public void onNext(success value) {
-					taskMatch request2 = taskMatch.newBuilder().setWorkingDay(23)
-							.setWorkingMonth(4)
-							.setWorkingYear(2022)
-							.setNumberOfHours(4)
-							.setCardNumber("test")
+					taskMatch request2 = taskMatch.newBuilder()
+							.setWorkingDay(Integer.parseInt(entryWorkingDay.getText()))
+							.setWorkingMonth(Integer.parseInt(entryWorkingMonth.getText()))
+							.setWorkingYear(Integer.parseInt(entryWorkingYear.getText()))
+							.setNumberOfHours(Float.parseFloat(entryNumberOfHours.getText()))
+							.setCardNumber(Integer.parseInt(entryCardNumber3.getText()))
 							.build();
-					asyncStub.taskRequest(request2);
-					
 				}
-
 				@Override
 				public void onError(Throwable t) {
 					System.out.println("Error");
 					
 				}
-
 				@Override
 				public void onCompleted() {
-					System.out.println("Completed");
-					
-
-
-					
+					System.out.println("Completed");	
 				}};
 				
-			//StreamObserver so requestObserver from grpc library
-				StreamObserver<taskMatch> requestObserver = asyncStub.taskRequest(null);
-				requestObserver.onNext(null);
-				reply21.setText("Message sent");
-				//requestObserver.onNext(workingMonth);
-				//requestObserver.onNext(workingYear);
-				//requestObserver.onNext(numberOfHours);
-				//requestObserver.onNext(cardNumber);
-				System.out.println("Client has finished sending messages");
-				requestObserver.onCompleted();
-				
-				
-				
+				FindingWorkersStub asyncStub = FindingWorkersGrpc.newStub(channel1); //asynchronous stub for client streaming 
+				StreamObserver<project.manager.taskMatch> requestObserver = asyncStub.taskRequest(null);
+		
+			    try {
+			        reply21.setText("Message sent");
+			        requestObserver.onNext(null);
+			    } catch (RuntimeException e0) {
+			        requestObserver.onError(e0);
+			        throw e0;
+			    }
+			    System.out.println("Client has finished sending messages");
+			    reply21.setText("Client has finished sending messages");
+			    requestObserver.onCompleted();
+			}
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-			try {
-				newChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			/*
-			 * 
-			 
-			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
-			Service3Grpc.Service3BlockingStub blockingStub = Service3Grpc.newBlockingStub(channel);
 
-			//preparing message to send
-			ds.service3.RequestMessage request = ds.service3.RequestMessage.newBuilder().setText(entry3.getText()).build();
+		if (label.equals("Send answer")) {
 
-			//retreving reply from service
-			ds.service3.ResponseMessage response = blockingStub.service3Do(request);
+		if (label.equals("Send answer 2")) {
+			System.out.println("service Send answer 2 to be invoked ...");
 
-			reply3.setText( String.valueOf( response.getLength()) );
-			*/
-		} 
-		
-		if (label.equals("Invoke Service 4")) {
-			System.out.println("service 4 to be invoked ...");
-
-		
-			/*
-			 * 
-			
-			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50054).usePlaintext().build();
-			Service4Grpc.Service4BlockingStub blockingStub = Service4Grpc.newBlockingStub(channel);
-
-			//preparing message to send
-			ds.service4.RequestMessage request = ds.service4.RequestMessage.newBuilder().setText(entry4.getText()).build();
-
-			//retreving reply from service
-			ds.service4.ResponseMessage response = blockingStub.service4Do(request);
-
-			reply4.setText( String.valueOf( response.getLength()) );
-		 */
-		}else{
+		}
 			
 		}
 

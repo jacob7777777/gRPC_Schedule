@@ -28,12 +28,7 @@ public interface taskMatchOrBuilder extends
   float getNumberOfHours();
 
   /**
-   * <code>string card_number = 5;</code>
+   * <code>int64 card_number = 5;</code>
    */
-  java.lang.String getCardNumber();
-  /**
-   * <code>string card_number = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getCardNumberBytes();
+  long getCardNumber();
 }

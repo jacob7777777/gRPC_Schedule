@@ -47,7 +47,7 @@ public final class ProjectManagerSchedule {
       "\t \001(\003\"{\n\ttaskMatch\022\023\n\013working_day\030\001 \001(\003\022" +
       "\025\n\rworking_month\030\002 \001(\003\022\024\n\014working_year\030\003" +
       " \001(\003\022\027\n\017number_of_hours\030\004 \001(\002\022\023\n\013card_nu" +
-      "mber\030\005 \001(\t\"\027\n\007success\022\014\n\004task\030\001 \001(\t2k\n\016F" +
+      "mber\030\005 \001(\003\"\027\n\007success\022\014\n\004task\030\001 \001(\t2k\n\016F" +
       "indingWorkers\0220\n\013TaskFinding\022\023.taskSpeci" +
       "fications\032\010.success\"\0000\001\022\'\n\013TaskRequest\022\n" +
       ".taskMatch\032\010.success\"\000(\001B+\n\017project.mana" +

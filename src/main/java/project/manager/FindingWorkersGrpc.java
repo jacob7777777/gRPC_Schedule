@@ -126,9 +126,6 @@ public final class FindingWorkersGrpc {
     }
 
     /**
-     * <pre>
-     *rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
-     * </pre>
      */
     public io.grpc.stub.StreamObserver<project.manager.taskMatch> taskRequest(
         io.grpc.stub.StreamObserver<project.manager.success> responseObserver) {
@@ -182,9 +179,6 @@ public final class FindingWorkersGrpc {
     }
 
     /**
-     * <pre>
-     *rpc taskFinding (stream TaskSpecifications) returns (stream TaskMatch){}
-     * </pre>
      */
     public io.grpc.stub.StreamObserver<project.manager.taskMatch> taskRequest(
         io.grpc.stub.StreamObserver<project.manager.success> responseObserver) {

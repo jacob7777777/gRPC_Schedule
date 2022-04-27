@@ -7,7 +7,6 @@ C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\ma
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\manager\successOrBuilder.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\professional\absenceRequest.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\email\notification\NotificationGrpc.java
-C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\manager\ProjectManagerRequest.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\manager\taskSpecifications.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\email\notification\thanks.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\service\manager\GUIApp.java
@@ -30,5 +29,4 @@ C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\ma
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\email\notification\EmailsNotificationsServer.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\professional\ProffessionalRequest.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\professional\profile.java
-C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\service\manager\GUIApplication.java
 C:\Users\jacob\eclipse-workspace\AutomatedSchedulingApp\src\main\java\project\manager\taskMatch.java

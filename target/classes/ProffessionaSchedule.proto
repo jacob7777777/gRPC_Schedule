@@ -7,9 +7,6 @@ option java_outer_classname = "ProfessionalSchedule";
 service Timesheets {
 rpc IntroduceProfile (profile) returns (success){}
 rpc AbsenceEmptyAgenda (absenceRequest) returns (stream success){}
-//rpc AbsenceEmptyAgenda (stream absenceRequest) returns (success){}//lecture 7 min 19
-rpc AbsenceFullAgenda (stream absenceRequest) returns (success){}
-
 }
 
 message profile {

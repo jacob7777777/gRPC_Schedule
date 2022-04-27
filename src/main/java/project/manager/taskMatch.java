@@ -20,7 +20,7 @@ private static final long serialVersionUID = 0L;
     workingMonth_ = 0L;
     workingYear_ = 0L;
     numberOfHours_ = 0F;
-    cardNumber_ = "";
+    cardNumber_ = 0L;
   }
 
   @java.lang.Override
@@ -67,10 +67,9 @@ private static final long serialVersionUID = 0L;
             numberOfHours_ = input.readFloat();
             break;
           }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 40: {
 
-            cardNumber_ = s;
+            cardNumber_ = input.readInt64();
             break;
           }
           default: {
@@ -142,37 +141,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CARD_NUMBER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object cardNumber_;
+  private long cardNumber_;
   /**
-   * <code>string card_number = 5;</code>
+   * <code>int64 card_number = 5;</code>
    */
-  public java.lang.String getCardNumber() {
-    java.lang.Object ref = cardNumber_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      cardNumber_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string card_number = 5;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCardNumberBytes() {
-    java.lang.Object ref = cardNumber_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      cardNumber_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public long getCardNumber() {
+    return cardNumber_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -201,8 +175,8 @@ private static final long serialVersionUID = 0L;
     if (numberOfHours_ != 0F) {
       output.writeFloat(4, numberOfHours_);
     }
-    if (!getCardNumberBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, cardNumber_);
+    if (cardNumber_ != 0L) {
+      output.writeInt64(5, cardNumber_);
     }
     unknownFields.writeTo(output);
   }
@@ -229,8 +203,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, numberOfHours_);
     }
-    if (!getCardNumberBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, cardNumber_);
+    if (cardNumber_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, cardNumber_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,8 +233,8 @@ private static final long serialVersionUID = 0L;
         java.lang.Float.floatToIntBits(getNumberOfHours())
         == java.lang.Float.floatToIntBits(
             other.getNumberOfHours()));
-    result = result && getCardNumber()
-        .equals(other.getCardNumber());
+    result = result && (getCardNumber()
+        == other.getCardNumber());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -284,7 +259,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getNumberOfHours());
     hash = (37 * hash) + CARD_NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getCardNumber().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCardNumber());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -426,7 +402,7 @@ private static final long serialVersionUID = 0L;
 
       numberOfHours_ = 0F;
 
-      cardNumber_ = "";
+      cardNumber_ = 0L;
 
       return this;
     }
@@ -519,9 +495,8 @@ private static final long serialVersionUID = 0L;
       if (other.getNumberOfHours() != 0F) {
         setNumberOfHours(other.getNumberOfHours());
       }
-      if (!other.getCardNumber().isEmpty()) {
-        cardNumber_ = other.cardNumber_;
-        onChanged();
+      if (other.getCardNumber() != 0L) {
+        setCardNumber(other.getCardNumber());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -656,71 +631,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cardNumber_ = "";
+    private long cardNumber_ ;
     /**
-     * <code>string card_number = 5;</code>
+     * <code>int64 card_number = 5;</code>
      */
-    public java.lang.String getCardNumber() {
-      java.lang.Object ref = cardNumber_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cardNumber_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public long getCardNumber() {
+      return cardNumber_;
     }
     /**
-     * <code>string card_number = 5;</code>
+     * <code>int64 card_number = 5;</code>
      */
-    public com.google.protobuf.ByteString
-        getCardNumberBytes() {
-      java.lang.Object ref = cardNumber_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cardNumber_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string card_number = 5;</code>
-     */
-    public Builder setCardNumber(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setCardNumber(long value) {
+      
       cardNumber_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string card_number = 5;</code>
+     * <code>int64 card_number = 5;</code>
      */
     public Builder clearCardNumber() {
       
-      cardNumber_ = getDefaultInstance().getCardNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string card_number = 5;</code>
-     */
-    public Builder setCardNumberBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      cardNumber_ = value;
+      cardNumber_ = 0L;
       onChanged();
       return this;
     }

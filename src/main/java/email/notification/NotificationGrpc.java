@@ -91,38 +91,6 @@ public final class NotificationGrpc {
      return getTaskChangeMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<email.notification.answer,
-      email.notification.thanks> getAbsenceConfirmationMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "AbsenceConfirmation",
-      requestType = email.notification.answer.class,
-      responseType = email.notification.thanks.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<email.notification.answer,
-      email.notification.thanks> getAbsenceConfirmationMethod() {
-    io.grpc.MethodDescriptor<email.notification.answer, email.notification.thanks> getAbsenceConfirmationMethod;
-    if ((getAbsenceConfirmationMethod = NotificationGrpc.getAbsenceConfirmationMethod) == null) {
-      synchronized (NotificationGrpc.class) {
-        if ((getAbsenceConfirmationMethod = NotificationGrpc.getAbsenceConfirmationMethod) == null) {
-          NotificationGrpc.getAbsenceConfirmationMethod = getAbsenceConfirmationMethod = 
-              io.grpc.MethodDescriptor.<email.notification.answer, email.notification.thanks>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "Notification", "AbsenceConfirmation"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  email.notification.answer.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  email.notification.thanks.getDefaultInstance()))
-                  .setSchemaDescriptor(new NotificationMethodDescriptorSupplier("AbsenceConfirmation"))
-                  .build();
-          }
-        }
-     }
-     return getAbsenceConfirmationMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -164,13 +132,6 @@ public final class NotificationGrpc {
       asyncUnimplementedUnaryCall(getTaskChangeMethod(), responseObserver);
     }
 
-    /**
-     */
-    public void absenceConfirmation(email.notification.answer request,
-        io.grpc.stub.StreamObserver<email.notification.thanks> responseObserver) {
-      asyncUnimplementedUnaryCall(getAbsenceConfirmationMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -187,13 +148,6 @@ public final class NotificationGrpc {
                 email.notification.answer,
                 email.notification.thanks>(
                   this, METHODID_TASK_CHANGE)))
-          .addMethod(
-            getAbsenceConfirmationMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                email.notification.answer,
-                email.notification.thanks>(
-                  this, METHODID_ABSENCE_CONFIRMATION)))
           .build();
     }
   }
@@ -231,14 +185,6 @@ public final class NotificationGrpc {
       asyncUnaryCall(
           getChannel().newCall(getTaskChangeMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void absenceConfirmation(email.notification.answer request,
-        io.grpc.stub.StreamObserver<email.notification.thanks> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getAbsenceConfirmationMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -271,13 +217,6 @@ public final class NotificationGrpc {
     public email.notification.thanks taskChange(email.notification.answer request) {
       return blockingUnaryCall(
           getChannel(), getTaskChangeMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public email.notification.thanks absenceConfirmation(email.notification.answer request) {
-      return blockingUnaryCall(
-          getChannel(), getAbsenceConfirmationMethod(), getCallOptions(), request);
     }
   }
 
@@ -314,19 +253,10 @@ public final class NotificationGrpc {
       return futureUnaryCall(
           getChannel().newCall(getTaskChangeMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<email.notification.thanks> absenceConfirmation(
-        email.notification.answer request) {
-      return futureUnaryCall(
-          getChannel().newCall(getAbsenceConfirmationMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_JOB_CONFIRMATION = 0;
   private static final int METHODID_TASK_CHANGE = 1;
-  private static final int METHODID_ABSENCE_CONFIRMATION = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -351,10 +281,6 @@ public final class NotificationGrpc {
           break;
         case METHODID_TASK_CHANGE:
           serviceImpl.taskChange((email.notification.answer) request,
-              (io.grpc.stub.StreamObserver<email.notification.thanks>) responseObserver);
-          break;
-        case METHODID_ABSENCE_CONFIRMATION:
-          serviceImpl.absenceConfirmation((email.notification.answer) request,
               (io.grpc.stub.StreamObserver<email.notification.thanks>) responseObserver);
           break;
         default:
@@ -420,7 +346,6 @@ public final class NotificationGrpc {
               .setSchemaDescriptor(new NotificationFileDescriptorSupplier())
               .addMethod(getJobConfirmationMethod())
               .addMethod(getTaskChangeMethod())
-              .addMethod(getAbsenceConfirmationMethod())
               .build();
         }
       }

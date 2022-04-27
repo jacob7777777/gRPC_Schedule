@@ -15,10 +15,6 @@ public class ServiceRegistration {
 		try {
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 			
-			/*
-			 * service information
-			 */
-			
 			//the assumption is that we are registering a grpc server
 			//service_type = "_grpc._tcp.local.";				//service-type.domain
 			// service_name + service_type => simple_http._tcp.local
@@ -30,10 +26,6 @@ public class ServiceRegistration {
 			//Create ServiceInfo - 
 			//use the factory method to create the object			
 			ServiceInfo serviceInfo = ServiceInfo.create(service_type, service_name, service_port, service_desc);
-			
-			/*
-			 * register the service
-			 */
 			
 			jmdns.registerService(serviceInfo);
 			
@@ -47,13 +39,10 @@ public class ServiceRegistration {
 			
 			
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
